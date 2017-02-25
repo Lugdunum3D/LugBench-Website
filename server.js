@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var config = require('./config');
 var server = express();
 
-var db = mongoose.connect(config.db.uri_mongodb, (err) => {
+var db = mongoose.connect(config.mongodb_uri, (err) => {
     if (err) {
         console.log(err);
         return;

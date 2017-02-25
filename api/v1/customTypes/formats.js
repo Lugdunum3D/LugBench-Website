@@ -9,7 +9,7 @@ module.exports = function (mongoose) {
         let _val = val;
 
         if (!(_val instanceof Array)) {
-            throw new Error(_val + " is not a array");
+            throw new Error(_val + " is not an array");
         } else if (_val.length != 2) {
             throw new Error('Not enough parameters');
         } else if ((typeof _val[0].toString()) != 'string') {
