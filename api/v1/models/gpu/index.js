@@ -7,14 +7,14 @@ module.exports = function () {
     var schema = new mongoose.Schema({
         "properties": {
             "apiVersion": {
-                "major": mongoose.Schema.Types.Int10,
-                "minor": mongoose.Schema.Types.Int10,
-                "patch": mongoose.Schema.Types.Int12
+                "major": mongoose.Schema.Types.Uint10,
+                "minor": mongoose.Schema.Types.Uint10,
+                "patch": mongoose.Schema.Types.Uint12
             },
             "driverVersion": {
-                "major": mongoose.Schema.Types.Int10,
-                "minor": mongoose.Schema.Types.Int10,
-                "patch": mongoose.Schema.Types.Int12
+                "major": mongoose.Schema.Types.Uint10,
+                "minor": mongoose.Schema.Types.Uint10,
+                "patch": mongoose.Schema.Types.Uint12
             },
             "vendorID": Number,
             "deviceID": Number,
