@@ -12,7 +12,7 @@ var db = mongoose.connect(config.mongodb_uri, (err) => {
         console.log(err);
         return;
     }
-	console.log("Is connected to the db");
+    console.log("Is connected to the db");
 });
 
 server.use(express.static(__dirname));
