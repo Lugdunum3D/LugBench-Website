@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-require("../../customTypes/int12.js")(mongoose);
-require("../../customTypes/int10.js")(mongoose);
+require("../../customTypes/uint12.js")(mongoose);
+require("../../customTypes/uint10.js")(mongoose);
 require("../../customTypes/formats.js")(mongoose);
 
 module.exports = function () {
