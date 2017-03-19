@@ -11,26 +11,25 @@
             <h1>Doc benchmarking server</h1>
             <hr>
             <section>
-                <h2>Retrieve all gpu information</h2>
+                <h2>Retrieve all vulkaninfos</h2>
                 <code>
-                    GET /gpus
+                    GET /vulkaninfos
                 </code>
             </section>
             <section>
-                <h2>Retrieve a specific gpu</h2>
+                <h2>Retrieve a speific vulkaninfo</h2>
                 <code>
-                    GET /gpu/:id
+                    GET /vulkaninfo/:id
                 </code>
             </section>
             <section>
-                <h2>Insert a new gpu information</h2>
+                <h2>Insert a new vulkaninfo</h2>
                 <code>
-                    PUT /gpu
+                    PUT /vulkaninfo
                 </code>
-            </section>
-            <section>
                 <div>
-                    See all data <a href="/app/">here</a>
+                    See the datas to send
+                    <a href="/bodytosend">here</a>
                 </div>
             </section>
         </div>

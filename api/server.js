@@ -18,17 +18,12 @@ var db = mongoose.connect(config.mongodb_uri, (err) => {
 server.use(express.static(__dirname));
 server.use(bodyparser.json());
 
-server.set('view engine', 'ejs');
-server.set('views', __dirname + '/app/views');
-
-var api = require('./api');
-var app = require('./app');
+var api = require('./index.js');
 
 server.get('/', function (req, res) {
     res.sendFile('./index.html');
 });
 
-server.use('/app', app);
 server.use('/api/:version', api);
 
 server.listen(config.server.port, (err) => {
