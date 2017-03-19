@@ -7,4 +7,4 @@
 
 ------
 
-Copyright Lugdunum3D*
+Copyright Lugdunum3D
