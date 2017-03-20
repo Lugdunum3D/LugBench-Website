@@ -7,29 +7,21 @@ var mongoose = require('mongoose');
 var config = require('./config');
 var server = express();
 
-var db = mongoose.connect(config.mongodb_uri, (err) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    console.log("Is connected to the db");
-});
-
-server.use(express.static(__dirname));
-server.use(bodyparser.json());
-
 var api = require('./index.js');
 
-server.get('/', function (req, res) {
+mongoose.connect(config.mongodb_uri, (err) => {
+  console.log(err || ("Successfully connected to the db"));
+
+  server.use(express.static(__dirname));
+  server.use(bodyparser.json());
+  server.use('/api/:version', api);
+
+  server.get('/', (req, res) => {
     res.sendFile('./index.html');
-});
+  });
 
-server.use('/api/:version', api);
+  server.listen(config.server.port, (err) => {
+    console.log(err || ('API is listening on port ' + config.server.port));
+  });
 
-server.listen(config.server.port, (err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Listening on port " + config.server.port);
-    }
 });
