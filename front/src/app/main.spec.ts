@@ -2,13 +2,13 @@ import {Component} from '@angular/core';
 import {TestBed, async} from '@angular/core/testing';
 import {MainComponent} from './main';
 
-@Component({selector: 'fountain-techs', template: ''})
+@Component({selector: 'lugbench-techs', template: ''})
 class MockTechsComponent {}
-@Component({selector: 'fountain-footer', template: ''})
+@Component({selector: 'lugbench-footer', template: ''})
 class MockFooterComponent {}
-@Component({selector: 'fountain-header', template: ''})
+@Component({selector: 'lugbench-header', template: ''})
 class MockHeaderComponent {}
-@Component({selector: 'fountain-title', template: ''})
+@Component({selector: 'lugbench-title', template: ''})
 class MockTitleComponent {}
 
 describe('Main Component', () => {
@@ -29,9 +29,9 @@ describe('Main Component', () => {
     const fixture = TestBed.createComponent(MainComponent);
     fixture.detectChanges();
     const main = fixture.nativeElement;
-    expect(main.querySelector('fountain-header')).toBeDefined();
-    expect(main.querySelector('fountain-title')).toBeDefined();
-    expect(main.querySelector('fountain-techs')).toBeDefined();
-    expect(main.querySelector('fountain-footer')).toBeDefined();
+    expect(main.querySelector('lugbench-header')).toBeDefined();
+    expect(main.querySelector('lugbench-title')).toBeDefined();
+    expect(main.querySelector('lugbench-techs')).toBeDefined();
+    expect(main.querySelector('lugbench-footer')).toBeDefined();
   });
 });

@@ -12,7 +12,7 @@ export class Tech {
 }
 
 @Component({
-  selector: 'fountain-techs',
+  selector: 'lugbench-techs',
   template: require('./techs.html')
 })
 export class TechsComponent {

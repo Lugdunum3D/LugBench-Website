@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main';
 
 @Component({
-  selector: 'fountain-root',
+  selector: 'lugbench-root',
   template: '<router-outlet></router-outlet>'
 })
 export class RootComponent {}

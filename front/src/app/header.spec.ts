@@ -11,10 +11,10 @@ describe('header component', () => {
     TestBed.compileComponents();
   }));
 
-  it('should render \'Fountain Generator\'', () => {
+  it('should render header', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();
     const header = fixture.nativeElement;
-    expect(header.querySelector('a').textContent.trim()).toBe('Fountain Generator');
+    expect(header.querySelector('lugbench-header')).toBeDefined();
   });
 });

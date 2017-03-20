@@ -6,7 +6,7 @@ import {TestBed, inject, async} from '@angular/core/testing';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
-  selector: 'fountain-tech',
+  selector: 'lugbench-tech',
   template: ''
 })
 class MockTechComponent {
@@ -86,7 +86,7 @@ describe('techs component', () => {
       const fixture = TestBed.createComponent(TechsComponent);
       fixture.detectChanges();
       const techs = fixture.nativeElement;
-      expect(techs.querySelectorAll('fountain-tech').length).toBe(3);
+      expect(techs.querySelectorAll('lugbench-tech').length).toBe(3);
     });
   });
 });
