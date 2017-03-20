@@ -1,19 +1,19 @@
 import {MockBackend, MockConnection} from '@angular/http/testing';
 import {Http, BaseRequestOptions, Response, ResponseOptions} from '@angular/http';
 import {Component, Input} from '@angular/core';
-import {TechsComponent, Tech} from './techs';
+import {GpusComponent, Gpu} from './gpus';
 import {TestBed, inject, async} from '@angular/core/testing';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
-  selector: 'lugbench-tech',
+  selector: 'lugbench-gpu',
   template: ''
 })
-class MockTechComponent {
-  @Input() public tech: Tech;
+class MockGpuComponent {
+  @Input() public gpu: Gpu;
 }
 
-const techsJson = [
+const gpusJson = [
   {
     key: 'gulp',
     title: 'Gulp',
@@ -37,12 +37,12 @@ const techsJson = [
   }
 ];
 
-describe('techs component', () => {
+describe('gpus component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        TechsComponent,
-        MockTechComponent
+        GpusComponent,
+        MockGpuComponent
       ],
       providers: [
         MockBackend,
@@ -56,37 +56,37 @@ describe('techs component', () => {
     TestBed.compileComponents();
   }));
 
-  describe('techs component methods', () => {
-    it('should get techs', inject([MockBackend], (mockBackend: MockBackend) => {
-      const fixture = TestBed.createComponent(TechsComponent);
-      const techs: TechsComponent = fixture.componentInstance;
+  describe('gpus component methods', () => {
+    it('should get gpus', inject([MockBackend], (mockBackend: MockBackend) => {
+      const fixture = TestBed.createComponent(GpusComponent);
+      const gpus: GpusComponent = fixture.componentInstance;
       let conn: MockConnection;
-      const response = new Response(new ResponseOptions({body: techsJson}));
+      const response = new Response(new ResponseOptions({body: gpusJson}));
       mockBackend.connections.subscribe((connection: MockConnection) => {
         conn = connection;
       });
-      techs.getTechs().subscribe(jsonObject => {
-        techs.techs = jsonObject;
+      gpus.getGpus().subscribe(jsonObject => {
+        gpus.gpus = jsonObject;
       });
       conn.mockRespond(response);
-      expect(techs.techs.length).toBe(3);
+      expect(gpus.gpus.length).toBe(3);
       mockBackend.verifyNoPendingRequests();
     }));
   });
 
-  describe('techs component rendering', () => {
+  describe('gpus component rendering', () => {
     beforeEach(() => {
-      TechsComponent.prototype.getTechs = function () {
-        const response = new Response(new ResponseOptions({body: techsJson}));
+      GpusComponent.prototype.getGpus = function () {
+        const response = new Response(new ResponseOptions({body: gpusJson}));
         return Observable.of(response).map(response => response.json());
       };
     });
 
-    it('should mock the techs and render 3 elements <tech>', () => {
-      const fixture = TestBed.createComponent(TechsComponent);
+    it('should mock the gpus and render 3 elements <gpu>', () => {
+      const fixture = TestBed.createComponent(GpusComponent);
       fixture.detectChanges();
-      const techs = fixture.nativeElement;
-      expect(techs.querySelectorAll('lugbench-tech').length).toBe(3);
+      const gpus = fixture.nativeElement;
+      expect(gpus.querySelectorAll('lugbench-gpu').length).toBe(3);
     });
   });
 });
