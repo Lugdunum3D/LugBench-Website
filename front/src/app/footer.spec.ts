@@ -11,10 +11,10 @@ describe('footer component', () => {
     TestBed.compileComponents();
   }));
 
-  it('should render \'FountainJS team\'', () => {
+  it('should render footer', () => {
     const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const footer = fixture.nativeElement;
-    expect(footer.querySelector('a').textContent.trim()).toBe('FountainJS team');
+    expect(footer.querySelector('lugbench-footer')).toBeDefined();
   });
 });

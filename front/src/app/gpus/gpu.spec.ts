@@ -1,26 +1,26 @@
-import {TechComponent} from './tech';
+import {GpuComponent} from './gpu';
 import {TestBed, async} from '@angular/core/testing';
 
-describe('tech component', () => {
+describe('gpu component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        TechComponent
+        GpuComponent
       ]
     });
     TestBed.compileComponents();
   }));
 
   it('should render Gulp', () => {
-    const fixture = TestBed.createComponent(TechComponent);
-    fixture.componentInstance.tech = {
+    const fixture = TestBed.createComponent(GpuComponent);
+    fixture.componentInstance.gpu = {
       title: 'Gulp',
       logo: 'http://fountainjs.io/assets/imgs/gulp.png',
       text1: 'The streaming build system',
       text2: 'Automate and enhance your workflow'
     };
     fixture.detectChanges();
-    const tech = fixture.nativeElement;
-    expect(tech.querySelector('h3').textContent.trim()).toBe('Gulp');
+    const gpu = fixture.nativeElement;
+    expect(gpu.querySelector('h3').textContent.trim()).toBe('Gulp');
   });
 });

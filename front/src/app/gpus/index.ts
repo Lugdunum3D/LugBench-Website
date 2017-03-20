@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 
-import {TechsComponent} from './techs';
-import {TechComponent} from './tech';
+import {GpusComponent} from './gpus';
+import {GpuComponent} from './gpu';
 
 @NgModule({
   imports: [
@@ -11,11 +11,11 @@ import {TechComponent} from './tech';
     HttpModule
   ],
   declarations: [
-    TechsComponent,
-    TechComponent
+    GpusComponent,
+    GpuComponent
   ],
   exports: [
-    TechsComponent
+    GpusComponent
   ]
 })
-export class TechsModule {}
+export class GpusModule {}

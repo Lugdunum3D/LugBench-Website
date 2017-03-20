@@ -15,6 +15,6 @@ describe('title component', () => {
     const fixture = TestBed.createComponent(TitleComponent);
     fixture.detectChanges();
     const title = fixture.nativeElement;
-    expect(title.querySelector('h1').textContent.trim()).toBe('\'Allo, \'Allo!');
+    expect(title.querySelector('h1').textContent.trim()).toBe('Hey, graphics lover!');
   });
 });

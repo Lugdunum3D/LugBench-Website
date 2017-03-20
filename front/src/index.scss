@@ -78,21 +78,21 @@ a {
   color: white;
 }
 
-.techs-container {
+.gpus-container {
   margin: 1rem;
 }
-.techs-h2 {
+.gpus-h2 {
   font-weight: 300;
   font-size: 1.5rem;
 }
-.techs {
+.gpus {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.tech {
+.gpu {
   height: 15rem;
   width: 15rem;
   border: 1px solid lightgray;
@@ -100,13 +100,13 @@ a {
   margin: 1rem;
   padding: 1rem;
 }
-.tech-logo {
+.gpu-logo {
   width: 5rem;
   height: 5rem;
   float: right;
   margin: 0 0 .5rem .5rem;
 }
-.tech-h3 {
+.gpu-h3 {
   font-size: 1.5rem;
   margin: 0 0 2rem 0;
 }
