@@ -23,5 +23,4 @@ mongoose.connect(config.mongodb_uri, (err) => {
   server.listen(config.server.port, (err) => {
     console.log(err || ('API is listening on port ' + config.server.port));
   });
-
 });
