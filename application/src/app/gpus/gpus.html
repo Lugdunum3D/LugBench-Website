@@ -1,8 +1,30 @@
 <div class="gpus-container">
-  <h2 class="gpus-h2">
-    Cooked with all these awesome gpunologies:
-  </h2>
-  <div class="gpus">
-    <lugbench-gpu *ngFor="let gpu of gpus" [gpu]="gpu"></lugbench-gpu>
-  </div>
+  <div class="table-responsive">
+   <table class="table gpus">
+     <thead>
+     <tr>
+       <th>Device</th>
+       <th>Driver</th>
+       <th>api</th>
+       <th>Vendor</th>
+       <th>Type</th>
+       <th>OS</th>
+       <th>version</th>
+       <th>platform</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr ngFor="let gpu of gpus">
+       <td>{{ gpu.properties.deviceName }}</td>
+       <td>{{ gpu.properties.deviceID }}</td>
+       <td>{{ gpu.properties.apiVersion.major }}.{{ gpu.properties.apiVersion.minor }}.{{ gpu.properties.apiVersion.patch }}</td>
+       <td>{{ gpu.properties.vendorID }}</td>
+       <td>{{ "to be defined" }}</td>
+       <td>{{ gpu.properties.deviceID }}</td>
+       <td>{{ "" }}</td>
+       <td>{{ "x86_64" }}</td>
+     </tr>
+   </tbody>
+   </table>
+ </div>
 </div>
