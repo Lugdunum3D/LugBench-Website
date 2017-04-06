@@ -1,15 +1,16 @@
 {
   "dependencies": {
-    "@angular/core": "^2.4.8",
-    "@angular/compiler": "^2.4.8",
     "@angular/common": "^2.4.8",
+    "@angular/compiler": "^2.4.8",
+    "@angular/core": "^2.4.8",
+    "@angular/http": "^2.4.8",
     "@angular/platform-browser": "^2.4.8",
     "@angular/platform-browser-dynamic": "^2.4.8",
-    "@angular/http": "^2.4.8",
-    "rxjs": "5.1.1",
-    "zone.js": "^0.7.7",
+    "@angular/router": "^3.4.8",
     "core-js": "^2.4.1",
-    "@angular/router": "^3.4.8"
+    "ng2-bootstrap": "^1.6.1",
+    "rxjs": "5.1.1",
+    "zone.js": "^0.7.7"
   },
   "devDependencies": {
     "del": "^2.2.2",
