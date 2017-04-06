@@ -3,6 +3,7 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
+var morgan = require('morgan');
 
 var config = require('./config');
 var server = express();
@@ -27,6 +28,7 @@ mongoose.connect(config.mongodb_uri, (err) => {
       next();
   });
 
+  server.use(morgan(':method :url | :status | :response-time ms'));
   server.use(express.static(__dirname));
   server.use(bodyparser.json());
   server.use('/api/:version', api);
