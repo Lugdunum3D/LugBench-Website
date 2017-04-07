@@ -17,7 +17,9 @@ describe('gpu component', () => {
       title: 'Gulp',
       logo: 'http://fountainjs.io/assets/imgs/gulp.png',
       text1: 'The streaming build system',
-      text2: 'Automate and enhance your workflow'
+      text2: 'Automate and enhance your workflow',
+      data: {},
+      properties: {}
     };
     fixture.detectChanges();
     const gpu = fixture.nativeElement;

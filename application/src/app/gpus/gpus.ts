@@ -7,7 +7,9 @@ export class Gpu {
     public logo: string,
     public title: string,
     public text1: string,
-    public text2: string
+    public text2: string,
+    public data: any,
+    public properties: any
   ) {}
 }
 
@@ -15,24 +17,21 @@ export class Gpu {
   selector: 'lugbench-gpus',
   template: require('./gpus.html')
 })
+
 export class GpusComponent {
   public gpus: Gpu[];
   public gpu: Gpu;
 
   constructor(public http: Http) {
-    this.getGpus().subscribe(result => {
-      console.log('RESULT ', result);
-      this.gpus = result;
+    this.getGpus().subscribe(data => {
+      this.gpus = data;
     });
   }
 
   getGpus(): Observable<Gpu[]> {
     return this.http
       .get('http://localhost:5000/api/v1/gpus')
-      // .get('app/gpus/gpus.json')
-      .map(response => {
-        console.log('RESPONSE ', response);
-        return response.json();
-      });
+      .map(response => response.json());
   }
+
 }
