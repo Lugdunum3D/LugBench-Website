@@ -4,13 +4,14 @@ import {Observable} from 'rxjs/Observable';
 
 export class Gpu {
   constructor(
-    public logo: string,
-    public title: string,
-    public text1: string,
-    public text2: string,
-    public data: any,
-    public properties: any
-  ) {}
+    public extensions: Array<Object>,
+    public features: Object,
+    public formats: Array<Array<Object>>,
+    public memory: Object,
+    public properties: Object,
+    public queues: Array<Object>,
+  ) {
+  }
 }
 
 @Component({
@@ -25,13 +26,13 @@ export class GpusComponent {
   constructor(public http: Http) {
     this.getGpus().subscribe(data => {
       this.gpus = data;
+      console.log(this.gpus);
     });
   }
 
   getGpus(): Observable<Gpu[]> {
     return this.http
       .get('http://localhost:5000/api/v1/gpus')
-      .map(response => response.json());
+      .map(response => response.json().data);
   }
-
 }
