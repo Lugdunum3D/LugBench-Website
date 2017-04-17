@@ -10,8 +10,7 @@ export class Gpu {
     public memory: Object,
     public properties: Object,
     public queues: Array<Object>,
-  ) {
-  }
+  ) {}
 }
 
 @Component({
@@ -26,7 +25,7 @@ export class GpusComponent {
   constructor(public http: Http) {
     this.getGpus().subscribe(data => {
       this.gpus = data;
-      console.log(this.gpus);
+      return data;
     });
   }
 
