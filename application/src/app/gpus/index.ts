@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 
 import {GpusComponent} from './gpus';
-// Temporary : Import {GpuComponent} from './gpu';
+// temporary : import {GpuComponent} from './gpu';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import {GpusComponent} from './gpus';
   ],
   declarations: [
     GpusComponent,
-    // GpuComponent
+    // temporary : GpuComponent
   ],
   exports: [
     GpusComponent
