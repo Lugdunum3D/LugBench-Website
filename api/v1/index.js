@@ -5,7 +5,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var gpu = (require('./models/gpu'))();
 
-router.put('/gpu', (req, res) => {
+router.put('/gpus', (req, res) => {
   gpu(req.body).save().then((doc) => {
     res.send({
       data: doc,
