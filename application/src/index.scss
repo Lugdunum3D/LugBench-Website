@@ -91,6 +91,9 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.table-gpus tr {
+  cursor: pointer;
+}
 
 .gpu {
   height: 15rem;
