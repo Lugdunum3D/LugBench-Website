@@ -20,7 +20,7 @@ import {FooterComponent} from './footer';
     MainComponent,
     HeaderComponent,
     TitleComponent,
-    FooterComponent,
+    FooterComponent
   ],
   bootstrap: [RootComponent]
 })

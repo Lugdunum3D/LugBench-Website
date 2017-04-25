@@ -30,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let gpu of gpus" (click)="goToGpu($event, gpu._id)">
+        <tr *ngFor="let gpu of gpus" (click)="goToGpu(gpu._id)">
           <td class="text-center">
             {{ gpu.properties.deviceName }}
           </td>

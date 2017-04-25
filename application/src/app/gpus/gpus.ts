@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 export class Gpu {
   constructor(
@@ -36,7 +36,7 @@ export class GpusComponent {
       .map(response => response.json().data);
   }
 
-  public goToGpu(event, id) {
+  public goToGpu(id: string) {
     this.router.navigateByUrl(`/gpus/${id}`);
   }
 
