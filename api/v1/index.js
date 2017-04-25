@@ -33,13 +33,17 @@ router.get('/gpus', (req, res) => {
   });
 });
 
-router.get('/gpu/:id', (req, res) => {
+router.get('/gpus/:id', (req, res) => {
   let id = req.params.id;
 
   gpu.findOne({
     '_id': mongoose.Types.ObjectId(id)
   }).then((doc) => {
-    res.send(doc);
+    console.log(doc);
+    res.send({
+      status: 200,
+      data: doc
+    });
   });
 });
 
