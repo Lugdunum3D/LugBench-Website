@@ -13,7 +13,7 @@ import {FooterComponent} from './footer.component';
   imports: [
     BrowserModule,
     routing,
-    GpusModule
+    GpusModule,
   ],
   declarations: [
     RootComponent,
