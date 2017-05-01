@@ -3,20 +3,11 @@ import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
 
-export class Gpu {
-  constructor(
-    public extensions: Array<Object>,
-    public features: Object,
-    public formats: Array<Array<Object>>,
-    public memory: Object,
-    public properties: Object,
-    public queues: Array<Object>,
-  ) {}
-}
+import { Gpu } from '../shared/models/gpu';
 
 @Component({
   selector: 'lugbench-gpus',
-  template: require('./gpus.html')
+  template: require('./gpus.component.html')
 })
 
 export class GpusComponent {

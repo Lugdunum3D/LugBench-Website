@@ -2,6 +2,6 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'lugbench-header',
-  template: require('./header.html')
+  template: require('./header.component.html')
 })
 export class HeaderComponent {}

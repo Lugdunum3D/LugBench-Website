@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 
-import {GpusComponent} from './gpus';
-import {GpuComponent} from './gpu';
+import {GpusComponent} from './gpus.component';
+import {GpuComponent} from './gpu.component';
 
 @NgModule({
   imports: [

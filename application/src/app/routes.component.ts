@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {MainComponent} from './main';
-import {GpuComponent} from './gpus/gpu';
+import {MainComponent} from './main.component';
+import { GpusComponent } from './gpus/gpus.component';
+import {GpuComponent} from './gpus/gpu.component';
 
 @Component({
   selector: 'lugbench-root',
@@ -17,7 +18,7 @@ export const routes: Routes = [
   },
   {
     path: 'gpus',
-    component: MainComponent
+    component: GpusComponent
   },
   {
     path: 'gpus/:id',

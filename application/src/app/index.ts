@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {routing, RootComponent} from './routes';
+import {routing, RootComponent} from './routes.component';
 
 import {GpusModule} from './gpus';
 
-import {MainComponent} from './main';
-import {HeaderComponent} from './header';
-import {TitleComponent} from './title';
-import {FooterComponent} from './footer';
+import {MainComponent} from './main.component';
+import {HeaderComponent} from './header.component';
+import {TitleComponent} from './title.component';
+import {FooterComponent} from './footer.component';
 
 @NgModule({
   imports: [
@@ -22,6 +22,6 @@ import {FooterComponent} from './footer';
     TitleComponent,
     FooterComponent
   ],
-  bootstrap: [RootComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule {}
