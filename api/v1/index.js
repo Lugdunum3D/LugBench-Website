@@ -39,7 +39,6 @@ router.get('/gpus/:id', (req, res) => {
   gpu.findOne({
     '_id': mongoose.Types.ObjectId(id)
   }).then((doc) => {
-    console.log(doc);
     res.send({
       status: 200,
       data: doc
