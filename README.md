@@ -1,2 +1,2 @@
-# LugBench-Server
-Server side of LugBench application
+# LugBench-Website
+Frontend of LugBench website
