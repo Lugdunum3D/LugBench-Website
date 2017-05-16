@@ -23,7 +23,7 @@ export class GpusComponent {
 
   getGpus(): Observable<Gpu[]> {
     return this.http
-      .get('http://localhost:5000/api/v1/gpus')
+      .get('https://lugbench-api.herokuapp.com/api/v1/gpus')
       .map(response => response.json().data);
   }
 

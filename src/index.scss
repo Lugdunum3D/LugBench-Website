@@ -113,3 +113,19 @@ a {
   font-size: 1.5rem;
   margin: 0 0 2rem 0;
 }
+
+.tab { cursor: pointer;padding-left: 0; }
+.tab a { color: black; border-radius: 0px !important; }
+
+.no-padding { padding-left: 0 !important;padding-right: 0 !important; }
+.no-padding-left { padding-left: 0 !important; }
+.no-padding-right { padding-right: 0 !important; }
+
+.no-margin { margin-left: 0 !important;margin-right: 0 !important; }
+.no-margin-left { margin-left: 0 !important; }
+.no-margin-right { margin-right: 0 !important; }
+
+.nav-tabs > li > a { overflow: hidden; }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active>a:focus, .nav-tabs > li.active > a:hover { border: none; border-bottom: 3px solid #337ab7; }
+.section { margin-top: 20px }
