@@ -31,7 +31,7 @@
       </a>
     </li>
   </ul>
-  <div class="container">
+  <div class="container-fluid">
     <div class="content" *ngIf="gpu">
       <div id="propertiesTab" class="tab-content" *ngIf="tabIndex === 1 && gpu.properties !== null">
         <section class="section">
@@ -117,7 +117,14 @@
               <tbody>
                 <tr *ngFor="let key of this.sparsePropertyKeys">
                   <td>{{ key }}</td>
-                  <td>{{ this.gpu.properties['sparseProperties'][key] }}</td>
+                  <td>
+                    <span class="glyphicon"
+                      [class.glyphicon-ok]="this.gpu.properties['sparseProperties'][key] === true"
+                      [class.text-success]="this.gpu.properties['sparseProperties'][key] === true"
+                      [class.glyphicon-remove]="this.gpu.properties['sparseProperties'][key] === false"
+                      [class.text-danger]="this.gpu.properties['sparseProperties'][key] === false"
+                    aria-hidden="true"></span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -146,32 +153,138 @@
         </section>
       </div>
       <div id="featuresTab" class="tab-content" *ngIf="tabIndex === 2 && gpu.features !== null">
-        <section class="section">
-          <div class="page-content" style="overflow: auto">
-            <table class="table table-striped table-bordered table-responsive">
-              <thead>
-                <tr></tr>
-              </thead>
-              <tbody>
-                <tr></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+        <div class="container">
+          <section class="section">
+            <div class="page-content" style="overflow: auto">
+              <table class="table table-striped table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>Feature name</th>
+                    <th>Active</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let key of this.featureKeys">
+                    <td>{{ key }}</td>
+                    <td>
+                      <span class="glyphicon"
+                        [class.glyphicon-ok]="this.gpu.features[key] === true"
+                        [class.text-success]="this.gpu.features[key] === true"
+                        [class.glyphicon-remove]="this.gpu.features[key] === false"
+                        [class.text-danger]="this.gpu.features[key] === false"
+                      aria-hidden="true"></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </div>
       <div id="memoryTab" class="tab-content" *ngIf="tabIndex === 3 && gpu.memory !== null">
+        <div class="container">
+          <section class="section">
+            <div class="page-header">
+              <h2>Memory types ({{ this.gpu.memory.memoryTypeCount }})</h2>
+            </div>
+            <div class="page-content" style="overflow: auto">
+              <table class="table table-striped table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <td>Heap index</td>
+                    <td>Property flags</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let memoryType of this.gpu.memory.memoryTypes">
+                    <td>{{ memoryType.heapIndex }}</td>
+                    <td *ngIf="memoryType.propertyFlags.length > 0">{{ memoryType.propertyFlags }}</td>
+                    <td *ngIf="!memoryType.propertyFlags.length">No flags</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="section">
+            <div class="page-header">
+              <h2>Memory Heap ({{ this.gpu.memory.memoryHeapCount }})</h2>
+            </div>
+            <div class="page-content">
+              <table class="table table-striped table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>Heap index</th>
+                    <th>Property flags</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let memoryHeap of this.gpu.memory.memoryHeaps">
+                    <td>{{ memoryHeap.size }}</td>
+                    <td *ngIf="memoryHeap.flags.length > 0">{{ memoryHeap.flags }}</td>
+                    <td *ngIf="!memoryHeap.flags.length">No flags</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </div>
-      <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 4 && gpu.extensions && gpu.extensions.length > 0">
-        <section>
-          <div class="page-header">
-            ExtensionName
-          </div>
-        </section>
-        <section *ngIf="!gpu.extensions || !gpu.extensions.length">
-          <h1>No extensions</h1>
+      <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 4 && this.gpu.extension">
+        <section class="section">
+          <table class="table table-striped table-bordered table-responsive">
+            <thead>
+              <tr>
+                <th>Extension name</th>
+                <th>Major</th>
+                <th>Minor</th>
+                <th>Patch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let extension of this.gpu.extension">
+                <td>{{ extension.extensionName }}</td>
+                <td>{{ extension.specVersion.major }}</td>
+                <td>{{ extension.specVersion.minor }}</td>
+                <td>{{ extension.specVersion.patch }}</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </div>
       <div id="formatsTab" class="tab-content" *ngIf="tabIndex === 5 && gpu.formats !== null">
+        <div class="container" style="overflow: auto">
+          <div class="section col-xs-6" *ngFor="let formatObject of this.gpu.formats">
+            <h3>{{ formatObject[0] }}</h3>
+            <div class="page-content">
+              <!-- <ul> -->
+                <!-- <li> -->
+                  <h4>Buffer features</h4>
+                  <!-- <ul> -->
+                    <h6 *ngFor="let feature of formatObject[1].bufferFeatures">
+                      {{ feature }}
+                    </h6>
+                  <!-- </ul> -->
+                <!-- </li> -->
+                <!-- <li> -->
+                  <h4>Linear tiling features</h4>
+                  <!-- <ul> -->
+                    <h6 *ngFor="let feature of formatObject[1].linearTilingFeatures">
+                      {{ feature }}
+                    </h6>
+                  <!-- </ul> -->
+                <!-- </li> -->
+                <!-- <li> -->
+                  <h4>Optimal tiling features</h4>
+                  <!-- <ul> -->
+                    <h6 *ngFor="let feature of formatObject[1].optimalTilingFeatures">
+                      {{ feature }}
+                    </h6>
+                  <!-- </ul> -->
+                <!-- </li> -->
+              <!-- </ul> -->
+            </div>
+          </div>
+        </div>
       </div>
       <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 6 && gpu.queues !== null">
       </div>

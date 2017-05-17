@@ -1,5 +1,5 @@
 export class Gpu {
-    public extensions: Array<Object>;
+    public extension: Array<Object>;
     public features: Object;
     public memory: Object;
     public properties: any;

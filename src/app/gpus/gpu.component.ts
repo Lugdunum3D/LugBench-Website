@@ -57,6 +57,8 @@ export class GpuComponent implements OnInit, OnDestroy {
             this.featureKeys.push(key);
           }
         }
+
+        console.log(this.gpu.extension);
       });
     });
   }
