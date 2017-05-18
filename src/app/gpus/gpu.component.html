@@ -287,6 +287,71 @@
         </div>
       </div>
       <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 6 && gpu.queues !== null">
+        <section class="section">
+          <table class="table table-striped table-bordered table-responsive" *ngFor="let queue of this.gpu.queues; let i = index;">
+            <thead>
+              <tr>
+                <td colspan="2">
+                  <strong>
+                    Queue #{{i}}
+                  </strong>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="30%">
+                  queueCount
+                </td>
+                <td width="70%">
+                  {{ queue.queueCount }}
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">
+                  Flags
+                </td>
+                <td width="70%">
+                  <span *ngFor="let flag of this.queue.queueFlags">
+                    {{ flag }}<br>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">
+                  timestampValidBits
+                </td>
+                <td width="70%">
+                  {{ queue.timestampValidBits }}
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">
+                  minImageTransferGranularity.width
+                </td>
+                <td width="70%">
+                  {{ queue.minImageTransferGranularity.width }}
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">
+                  minImageTransferGranularity.height
+                </td>
+                <td width="70%">
+                  {{ queue.minImageTransferGranularity.height }}
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">
+                  minImageTransferGranularity.depth
+                </td>
+                <td width="70%">
+                  {{ queue.minImageTransferGranularity.depth }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </div>
     </div>
   </div>
