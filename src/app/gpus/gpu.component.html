@@ -252,38 +252,37 @@
         </section>
       </div>
       <div id="formatsTab" class="tab-content" *ngIf="tabIndex === 5 && gpu.formats !== null">
-        <div class="container" style="overflow: auto">
-          <div class="section col-xs-6" *ngFor="let formatObject of this.gpu.formats">
-            <h3>{{ formatObject[0] }}</h3>
-            <div class="page-content">
-              <!-- <ul> -->
-                <!-- <li> -->
-                  <h4>Buffer features</h4>
-                  <!-- <ul> -->
-                    <h6 *ngFor="let feature of formatObject[1].bufferFeatures">
-                      {{ feature }}
-                    </h6>
-                  <!-- </ul> -->
-                <!-- </li> -->
-                <!-- <li> -->
-                  <h4>Linear tiling features</h4>
-                  <!-- <ul> -->
-                    <h6 *ngFor="let feature of formatObject[1].linearTilingFeatures">
-                      {{ feature }}
-                    </h6>
-                  <!-- </ul> -->
-                <!-- </li> -->
-                <!-- <li> -->
-                  <h4>Optimal tiling features</h4>
-                  <!-- <ul> -->
-                    <h6 *ngFor="let feature of formatObject[1].optimalTilingFeatures">
-                      {{ feature }}
-                    </h6>
-                  <!-- </ul> -->
-                <!-- </li> -->
-              <!-- </ul> -->
-            </div>
-          </div>
+        <div class="container-fluid section" style="overflow: auto">
+          <table class="table table-responsive table-bordered table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Buffer features</th>
+                <th>Linear tiling features</th>
+                <th>Optimal tiling features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let formatObject of this.gpu.formats">
+                <th>{{ formatObject[0] }}</th>
+                <td>
+                  <span *ngFor="let feature of formatObject[1].bufferFeatures">
+                    {{ feature }}
+                  </span>
+                </td>
+                <td>
+                  <span *ngFor="let feature of formatObject[1].linearTilingFeatures">
+                    {{ feature }}
+                  </span>
+                </td>
+                <td>
+                  <span *ngFor="let feature of formatObject[1].optimalTilingFeatures">
+                    {{ feature }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 6 && gpu.queues !== null">
@@ -293,7 +292,7 @@
               <tr>
                 <td colspan="2">
                   <strong>
-                    Queue #{{i}}
+                  Queue #{{i}}
                   </strong>
                 </td>
               </tr>
