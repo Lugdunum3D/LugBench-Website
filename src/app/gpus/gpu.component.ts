@@ -68,7 +68,8 @@ export class GpuComponent implements OnInit, OnDestroy {
 
   getGpu(): Observable<Gpu> {
     return this.http
-      .get(`https://lugbench-api.herokuapp.com/api/v1/gpus/${this.gpuId}`)
+      // .get(`https://lugbench-api.herokuapp.com/api/v1/gpus/${this.gpuId}`)
+      .get(`http://localhost:5000/api/v1/gpus/${this.gpuId}`)
       .map(response => response.json().data);
   }
 }

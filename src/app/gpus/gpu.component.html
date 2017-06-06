@@ -1,33 +1,38 @@
 <div class="container-fluid">
   <ul class="nav nav-tabs" id="menu-categories">
-    <li role="presentation" class="tab col-xs-2 no-padding text-center" (click)="tabIndex = 1" [class.active]="tabIndex === 1">
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 1" [class.active]="tabIndex === 1">
       <a class="no-margin">
         Properties
       </a>
     </li>
-    <li role="presentation" class="tab col-xs-2 no-padding text-center" (click)="tabIndex = 2" [class.active]="tabIndex === 2">
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 2" [class.active]="tabIndex === 2">
       <a class="no-margin">
         Features
       </a>
     </li>
-    <li role="presentation" class="tab col-xs-2 no-padding text-center" (click)="tabIndex = 3" [class.active]="tabIndex === 3">
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 3" [class.active]="tabIndex === 3">
       <a class="no-margin">
         Memory
       </a>
     </li>
-    <li role="presentation" class="tab col-xs-2 no-padding text-center" (click)="tabIndex = 4" [class.active]="tabIndex === 4">
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 4" [class.active]="tabIndex === 4">
       <a class="no-margin">
         Extensions
       </a>
     </li>
-    <li role="presentation" class="tab col-xs-2 no-padding text-center" (click)="tabIndex = 5" [class.active]="tabIndex === 5">
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 5" [class.active]="tabIndex === 5">
       <a class="no-margin">
         Formats
       </a>
     </li>
-    <li role="presentation" class="tab col-xs-2 no-padding text-center" (click)="tabIndex = 6" [class.active]="tabIndex === 6">
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 6" [class.active]="tabIndex === 6">
       <a class="no-margin">
         Queue
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 7" [class.active]="tabIndex === 7">
+      <a class="no-margin">
+        SwachChain Info
       </a>
     </li>
   </ul>
@@ -346,6 +351,44 @@
                 </td>
                 <td width="70%">
                   {{ queue.minImageTransferGranularity.depth }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <div class="swapChainInfoTab" class="tab-content" *ngIf="tabIndex === 7 && gpu.SwapChainInfo !== null">
+        <section class="section">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <td>Current extent (height/width)</td>
+                <td>Max image array layers</td>
+                <td>Max image count</td>
+                <td>Max image extent (height/width)</td>
+                <td>Min image count</td>
+                <td>Min image extent (height/width)</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let swapChainInfo of this.gpu.SwapChainInfo">
+                <td>
+                  {{ swapChainInfo.currentExtent.height }} | {{ swapChainInfo.currentExtent.width }}
+                </td>
+                <td>
+                  {{ swapChainInfo.maxImageArrayLayers }}
+                </td>
+                <td>
+                  {{ swapChainInfo.maxImageCount }}
+                </td>
+                <td>
+                  {{ swapChainInfo.maxImageExtent.height }} | {{ swapChainInfo.maxImageExtent.width }}
+                </td>
+                <td>
+                  {{ swapChainInfo.minImageCount }}
+                </td>
+                <td>
+                  {{ swapChainInfo.minImageExtent.height }} | {{ swapChainInfo.minImageExtent.width }}
                 </td>
               </tr>
             </tbody>
