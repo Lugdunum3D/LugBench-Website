@@ -38,13 +38,13 @@
             {{ gpu.properties.apiVersion.major }}.{{ gpu.properties.apiVersion.minor }}.{{ gpu.properties.apiVersion.patch }}
           </td>
           <td class="text-center" *ngIf="gpu.properties">
-            {{ gpu.properties.vendorID }}
+            {{ gpu.properties.vendorName }}
           </td>
           <td class="text-center">
             {{ gpu.properties.deviceType }}
           </td>
           <td class="text-center" *ngIf="gpu.properties">
-            {{ gpu.properties.deviceID }}
+            {{ gpu.SwapChainInfo && gpu.SwapChainInfo[0].surfaceExtension.includes('xcb') ? 'Linux' : 'Windows' }}
           </td>
           <td class="text-center">
             {{ "x86_64" }}
