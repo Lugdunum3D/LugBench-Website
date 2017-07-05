@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {routing, RootComponent} from './routes.component';
-
-import {GpusModule} from './gpus';
+import { RouterModule } from '@angular/router';
 
 import {MainComponent} from './main.component';
 import {HeaderComponent} from './header.component';
 import {TitleComponent} from './title.component';
 import {FooterComponent} from './footer.component';
 
-import {DownloadComponent} from './download.component';
+import { DevicesModule } from './devices/index';
 
 @NgModule({
   imports: [
     BrowserModule,
     routing,
-    GpusModule,
+    DevicesModule,
+    RouterModule
   ],
   declarations: [
     RootComponent,
@@ -23,7 +23,6 @@ import {DownloadComponent} from './download.component';
     HeaderComponent,
     TitleComponent,
     FooterComponent,
-    DownloadComponent
   ],
   bootstrap: [MainComponent]
 })

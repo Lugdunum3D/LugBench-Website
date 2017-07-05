@@ -138,3 +138,8 @@ a {
 
 .nav-tabs > li.active > a, .nav-tabs > li.active>a:focus, .nav-tabs > li.active > a:hover { border: none; border-bottom: 3px solid #337ab7; }
 .section { margin-top: 20px }
+
+// DEVICES
+.logo { max-width: 20px; }
+.card { margin: 10px 0px; box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24); padding: 10px; height: 80px; display: flex; align-items: center; }
+.card:hover { cursor: pointer; }

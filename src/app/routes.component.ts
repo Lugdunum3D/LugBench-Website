@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {MainComponent} from './main.component';
-import {GpusComponent} from './gpus/gpus.component';
-import {GpuComponent} from './gpus/gpu.component';
-import {DownloadComponent} from './download.component';
+
+import { DevicesComponent } from './devices/devices.component';
+import { DeviceComponent } from './devices/device.component';
 
 @Component({
   selector: 'lugbench-root',
@@ -14,20 +13,16 @@ export class RootComponent {}
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/gpus',
+    redirectTo: 'devices',
     pathMatch: 'full'
   },
   {
-    path: 'gpus',
-    component: GpusComponent
+    path: 'devices',
+    component: DevicesComponent
   },
   {
-    path: 'gpus/:id',
-    component: GpuComponent
-  },
-  {
-    path: 'download',
-    component: DownloadComponent
+    path: 'device/:id',
+    component: DeviceComponent
   }
 ];
 
