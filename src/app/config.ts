@@ -1,3 +1,3 @@
 export const config = {
-    API_URL: 'http://localhost:5000'
+    API_URL: 'https://lugbench-api-dev.herokuapp.com'
 };

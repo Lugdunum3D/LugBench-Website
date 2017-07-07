@@ -30,11 +30,6 @@
         Queue
       </a>
     </li>
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 7" [class.active]="tabIndex === 7">
-      <a class="no-margin">
-        SwachChain Info
-      </a>
-    </li>
   </ul>
   <div class="container-fluid">
     <div class="content" *ngIf="device">
@@ -190,7 +185,7 @@
         <div class="container">
           <section class="section">
             <div class="page-header">
-              <h2>Memory types ({{ this.device.vulkanInfo.memory.memoryTypeCount }})</h2>
+              <h2>Memory</h2>
             </div>
             <div class="page-content" style="overflow: auto">
               <table class="table table-striped table-bordered table-responsive">
@@ -341,44 +336,6 @@
                 </td>
                 <td width="70%">
                   {{ queue.minImageTransferGranularity.depth }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
-      <div class="swapChainInfoTab" class="tab-content" *ngIf="tabIndex === 7 && device.vulkanInfo.SwapChainInfo !== null">
-        <section class="section">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <td>Current extent (height/width)</td>
-                <td>Max image array layers</td>
-                <td>Max image count</td>
-                <td>Max image extent (height/width)</td>
-                <td>Min image count</td>
-                <td>Min image extent (height/width)</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let swapChainInfo of this.device.vulkanInfo.SwapChainInfo">
-                <td>
-                  {{ swapChainInfo.currentExtent.height }} | {{ swapChainInfo.currentExtent.width }}
-                </td>
-                <td>
-                  {{ swapChainInfo.maxImageArrayLayers }}
-                </td>
-                <td>
-                  {{ swapChainInfo.maxImageCount }}
-                </td>
-                <td>
-                  {{ swapChainInfo.maxImageExtent.height }} | {{ swapChainInfo.maxImageExtent.width }}
-                </td>
-                <td>
-                  {{ swapChainInfo.minImageCount }}
-                </td>
-                <td>
-                  {{ swapChainInfo.minImageExtent.height }} | {{ swapChainInfo.minImageExtent.width }}
                 </td>
               </tr>
             </tbody>
