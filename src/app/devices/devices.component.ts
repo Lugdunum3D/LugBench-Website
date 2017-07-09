@@ -1,4 +1,4 @@
- import { Http } from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { config } from '../config';
 
 @Component({
     'selector': 'lugbench-devices',
-    'templateUrl': './app/devices/devices.component.html'
+    'template': require('./devices.component.html')
 })
 export class DevicesComponent {
     public devices: Device[];
@@ -29,6 +29,6 @@ export class DevicesComponent {
     }
 
     public goToDevice(id: string): void {
-      this.router.navigateByUrl(`/device/${id}`);
+      this.router.navigateByUrl(`/devices/${id}`);
     }
 }

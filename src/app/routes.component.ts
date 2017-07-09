@@ -3,6 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 import { DevicesComponent } from './devices/devices.component';
 import { DeviceComponent } from './devices/device.component';
+import { ScenariosComponent } from './scenarios/scenarios.component';
+import { ScenarioComponent } from './scenarios/scenario.component';
 
 @Component({
   selector: 'lugbench-root',
@@ -21,8 +23,16 @@ export const routes: Routes = [
     component: DevicesComponent
   },
   {
-    path: 'device/:id',
+    path: 'devices/:id',
     component: DeviceComponent
+  },
+  {
+    path: 'scenarios',
+    component: ScenariosComponent
+  },
+  {
+    path: 'scenarios/:id',
+    component: ScenarioComponent
   }
 ];
 

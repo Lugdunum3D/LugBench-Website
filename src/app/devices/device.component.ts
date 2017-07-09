@@ -9,7 +9,7 @@ import { config } from '../config';
 
 @Component({
     selector: 'lugbench-device',
-    templateUrl: './app/devices/device.component.html'
+    template: require('./device.component.html')
 })
 export class DeviceComponent {
     private device: Device;

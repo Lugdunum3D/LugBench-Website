@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Devices</h1>
+    <h1>Scenarios</h1>
     <nav>
         <div class="search-form-container">
             <div class="form-group">
@@ -7,14 +7,11 @@
             </div>
         </div>
     </nav>
-    <div class="row card" *ngFor="let device of this.devices" (click)="goToDevice(device._id)">
+    <div class="row card" *ngFor="let scenario of this.scenarios" (click)="goToScenario(scenario._id)">
         <div class="col-sm-2 primary-information">
-            <!-- <img src="./app/devices/images/{{ device.os }}_logo.png" class="logo img-responsive" alt=""> -->
-            <div>{{ device.driverVersion }}</div>
         </div>
         <div class="col-sm-8 secondary-information">
-            <p>{{ device.name }}</p>
-            <p>Date last test | GPU name</p>
+            <p>{{ scenario.name }}</p>
         </div>
         <div class="col-sm-2 tertiary-information">
             <p>Number frames</p>
