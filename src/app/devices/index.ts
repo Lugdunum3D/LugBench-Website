@@ -1,22 +1,27 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { DevicesComponent } from './devices.component';
 import { DeviceComponent } from './device.component';
+import { ScoresComponent } from './scores.component';
 
 @NgModule({
   imports: [
-      CommonModule,
-      HttpModule
+    CommonModule,
+    HttpModule,
+    RouterModule
   ],
   declarations: [
-      DevicesComponent,
-      DeviceComponent
+    DevicesComponent,
+    DeviceComponent,
+    ScoresComponent
   ],
   exports: [
-      DevicesComponent,
-      DeviceComponent
+    DevicesComponent,
+    DeviceComponent,
+    ScoresComponent
   ]
 })
-export class DevicesModule {}
+export class DevicesModule { }

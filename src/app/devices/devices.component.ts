@@ -29,6 +29,6 @@ export class DevicesComponent {
     }
 
     public goToDevice(id: string): void {
-      this.router.navigateByUrl(`/devices/${id}`);
+      this.router.navigateByUrl(`/devices/${id}/performances`);
     }
 }

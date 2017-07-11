@@ -123,7 +123,7 @@ a {
   margin: 0 0 2rem 0;
 }
 
-.tab { cursor: pointer;padding-left: 0; }
+.tab { cursor: pointer;padding-left: 0; margin: auto auto; width: 14.2857143%; }
 .tab a { color: black; border-radius: 0px !important; }
 
 .no-padding { padding-left: 0 !important;padding-right: 0 !important; }
@@ -137,9 +137,15 @@ a {
 .nav-tabs > li > a { overflow: hidden; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active>a:focus, .nav-tabs > li.active > a:hover { border: none; border-bottom: 3px solid #337ab7; }
+.tab-list { display: none; height: 0px; list-style: none; padding-left: 0; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); position: absolute; width: 100%; background-color: white; top: 0; }
+.tab-list li { transition: background-color 0.2s; }
+.tab-list li a { color: inherit; text-decoration: none; padding: 11px; display: block; }
+.tab-list li:hover, .tab-list li.active { background-color: #337ab7; color: white; }
+.tab-list-trigger:hover > .tab-list { height: auto; display: block; }
 .section { margin-top: 20px }
 
 // DEVICES
 .logo { max-width: 20px; }
 .card { margin: 10px 0px; box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24); padding: 10px; height: 80px; display: flex; align-items: center; }
 .card:hover { cursor: pointer; }
+.key { width: 100px; }

@@ -1,39 +1,62 @@
 <div class="container-fluid">
   <ul class="nav nav-tabs" id="menu-categories">
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 1" [class.active]="tabIndex === 1">
-      <a class="no-margin">
+    <li role="presentation" class="tab no-padding text-center" [class.active]="tabIndex === 'performances'">
+      <a [routerLink]="['/devices', this.deviceId, 'performances']" class="no-margin">
+        Performances
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding text-center" [class.active]="tabIndex === 'properties'">
+      <a [routerLink]="['/devices', this.deviceId, 'properties']" class="no-margin">
         Properties
       </a>
     </li>
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 2" [class.active]="tabIndex === 2">
-      <a class="no-margin">
+    <li role="presentation" class="tab no-padding text-center" [class.active]="tabIndex === 'features'">
+      <a [routerLink]="['/devices', this.deviceId, 'features']" class="no-margin">
         Features
       </a>
     </li>
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 3" [class.active]="tabIndex === 3">
+    <li role="presentation" class="tab no-padding text-center tab-list-trigger" [class.active]="tabIndex === 'memory'">
       <a class="no-margin">
-        Memory
+        Memory <i style="font-size: smaller;" class="glyphicon glyphicon-chevron-down"></i>
       </a>
+      <ul class="tab-list">
+        <li>
+          <a [routerLink]="['/devices', this.deviceId, 'memorytype']">Memory type</a>
+        </li>
+        <li>
+          <a [routerLink]="['/devices', this.deviceId, 'memoryheap']">Memory heap</a>
+        </li>
+      </ul>
     </li>
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 4" [class.active]="tabIndex === 4">
-      <a class="no-margin">
+    <li role="presentation" class="tab no-padding text-center" [class.active]="tabIndex === 'extensions'">
+      <a [routerLink]="['/devices', this.deviceId, 'extensions']" class="no-margin">
         Extensions
       </a>
     </li>
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 5" [class.active]="tabIndex === 5">
-      <a class="no-margin">
+    <li role="presentation" class="tab no-padding text-center" [class.active]="tabIndex === 'formats'">
+      <a [routerLink]="['/devices', this.deviceId, 'formats']" class="no-margin">
         Formats
       </a>
     </li>
-    <li role="presentation" class="tab no-padding text-center" (click)="tabIndex = 6" [class.active]="tabIndex === 6">
-      <a class="no-margin">
-        Queue
+    <li role="presentation" class="tab no-padding text-center" [class.active]="tabIndex === 'queues'">
+      <a [routerLink]="['/devices', this.deviceId, 'queues']" class="no-margin">
+        Queues
       </a>
     </li>
   </ul>
   <div class="container-fluid">
     <div class="content" *ngIf="device">
-      <div id="propertiesTab" class="tab-content" *ngIf="tabIndex === 1 && device.vulkanInfo.properties !== null">
+      <div id="performancesTab" class="tab-content" *ngIf="tabIndex === 'performances' && device.vulkanInfo.properties !== null">
+        <section class="section">
+          <div class="page-header">
+            <h2>Performances</h2>
+          </div>
+          <div class="page-content">
+            <scores-component></scores-component>
+          </div>
+        </section>
+      </div>
+      <div id="propertiesTab" class="tab-content" *ngIf="tabIndex === 'properties' && device.vulkanInfo.properties !== null">
         <section class="section">
           <div class="page-header">
             <h2>Device information</h2>
@@ -152,7 +175,7 @@
           </div>
         </section>
       </div>
-      <div id="featuresTab" class="tab-content" *ngIf="tabIndex === 2 && device.vulkanInfo.features !== null">
+      <div id="featuresTab" class="tab-content" *ngIf="tabIndex === 'features' && device.vulkanInfo.features !== null">
         <div class="container">
           <section class="section">
             <div class="page-content" style="overflow: auto">
@@ -181,40 +204,74 @@
           </section>
         </div>
       </div>
-      <div id="memoryTab" class="tab-content" *ngIf="tabIndex === 3 && device.vulkanInfo.memory !== null">
+      <div id="memoryTab" class="tab-content">
         <div class="container">
-          <section class="section">
+          <section class="section" *ngIf="tabIndex === 'memorytype'">
             <div class="page-header">
-              <h2>Memory</h2>
+              <h2>Memory type</h2>
             </div>
             <div class="page-content" style="overflow: auto">
-              <table class="table table-striped table-bordered table-responsive">
+              <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryType of device.vulkanInfo.memory.memoryTypes; let heapIndex = index">
                 <thead>
                   <tr>
-                    <th>Size</th>
-                    <th>Flags</th>
-                    <th>Memory types</th>
+                    <th colspan="2">
+                      Memory type {{ heapIndex }}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let memoryHeap of device.vulkanInfo.memory.memoryHeaps; let heapIndex = index">
-                    <td>{{ memoryHeap.size }}</td>
+                  <tr>
+                    <td class="key">
+                      <span>Heapindex</span>
+                    </td>
                     <td>
-                      <span *ngFor="let memoryHeapFlag of memoryHeap.flags">
-                        {{ memoryHeapFlag }}
+                      <span>{{ memoryType.heapIndex }}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="key">Flags</td>
+                    <td *ngIf="memoryType.propertyFlags && memoryType.propertyFlags.length">
+                      <span *ngFor="let propertyFlag of memoryType.propertyFlags">
+                        {{ propertyFlag }},
                       </span>
-                      <span *ngIf="memoryHeap.flags && !memoryHeap.flags.length">
+                    </td>
+                    <td *ngIf="!memoryType.propertyFlags || !memoryType.propertyFlags.length">
+                      <span>
                         No flags
                       </span>
                     </td>
-                    <td>
-                      <span *ngFor="let memoryType of this.device.vulkanInfo.memory.memoryTypes">
-                        <span *ngIf="memoryType.heapIndex == heapIndex">
-                          <span *ngFor="let propertyFlag of memoryType.propertyFlags">
-                            {{ propertyFlag }},
-                          </span>
-                        </span>
-                      </span>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="section" *ngIf="tabIndex === 'memoryheap'">
+            <div class="page-header">
+              <h2>Memory heap</h2>
+            </div>
+            <div class="page-content" style="overflow: auto">
+              <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryHeap of this.device.vulkanInfo.memory.memoryHeaps; let memoryHeapIndex = index">
+                <thead>
+                  <tr>
+                    <th colspan="2">
+                      Memory heap {{ memoryHeapIndex }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="key">Memory size</th>
+                    <td>{{ memoryHeap.size }}</td>
+                  </tr>
+                  <tr>
+                    <th class="key">Property flags</th>
+                    <td *ngIf="memoryHeap.flags.length">
+                      <div *ngFor="let flag of memoryHeap.flags">
+                        {{ flag }}
+                      </div>
+                    </td>
+                    <td *ngIf="!memoryHeap.flags.length">
+                      <div>No flags</div>
                     </td>
                   </tr>
                 </tbody>
@@ -223,7 +280,7 @@
           </section>
         </div>
       </div>
-      <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 4 && this.device.vulkanInfo.extensions">
+      <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 'extensions' && this.device.vulkanInfo.extensions">
         <section class="section">
           <table class="table table-striped table-bordered table-responsive">
             <thead>
@@ -241,7 +298,7 @@
           </table>
         </section>
       </div>
-      <div id="formatsTab" class="tab-content" *ngIf="tabIndex === 5 && device.vulkanInfo.formats !== null">
+      <div id="formatsTab" class="tab-content" *ngIf="tabIndex === 'formats' && device.vulkanInfo.formats !== null">
         <div class="container-fluid section" style="overflow: auto">
           <table class="table table-responsive table-bordered table-striped">
             <thead>
@@ -275,7 +332,7 @@
           </table>
         </div>
       </div>
-      <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 6 && device.vulkanInfo.queues !== null">
+      <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 'queues' && device.vulkanInfo.queues !== null">
         <section class="section">
           <table class="table table-striped table-bordered table-responsive" *ngFor="let queue of this.device.vulkanInfo.queues; let i = index;">
             <thead>
