@@ -9,12 +9,14 @@ import {TitleComponent} from './title.component';
 import {FooterComponent} from './footer.component';
 
 import { DevicesModule } from './devices';
+import { DownloadsModule } from './downloads';
 
 @NgModule({
   imports: [
     BrowserModule,
     routing,
     DevicesModule,
+    DownloadsModule,
     RouterModule
   ],
   declarations: [
