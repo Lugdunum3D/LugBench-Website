@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-striped table-bordered table-responsive" *ngFor="let score of this.scores">
+        <thead>
+            <tr>
+                <th>
+                    Scenario {{ score.scenario }}
+                </th>
+                <th>{{ score.date | date:'longDate' }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="key">Average fps</td>
+                <td>{{ score.averageFps }}</td>
+            </tr>
+            <tr>
+                <td class="key">Number of frames</td>
+                <td>{{ score.nbFrames }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="this.scores === undefined || !this.scores.length">
+        <h2>No scores</h2>
+    </div>
+</div>
