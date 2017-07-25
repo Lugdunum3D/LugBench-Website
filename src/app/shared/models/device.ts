@@ -5,6 +5,7 @@ class VulkanInfo {
     public properties: any;
     public formats: Array<Array<Object>>;
     public queues: Array<Object>;
+    public swapchain: Object;
 }
 
 export class Device {

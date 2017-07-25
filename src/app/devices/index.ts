@@ -5,7 +5,14 @@ import { RouterModule } from '@angular/router';
 
 import { DevicesComponent } from './devices.component';
 import { DeviceComponent } from './device.component';
+import { ExtensionsComponent } from './extensions.component';
+import { FeaturesComponent } from './features.component';
+import { FormatsComponent } from './formats.component';
+import { MemoryComponent } from './memory.component';
+import { PropertiesComponent } from './properties.component';
+import { QueuesComponent } from './queues.component';
 import { ScoresComponent } from './scores.component';
+import { SwapchainComponent } from './swapchain.component';
 
 @NgModule({
   imports: [
@@ -16,12 +23,26 @@ import { ScoresComponent } from './scores.component';
   declarations: [
     DevicesComponent,
     DeviceComponent,
-    ScoresComponent
+    ExtensionsComponent,
+    FeaturesComponent,
+    FormatsComponent,
+    MemoryComponent,
+    ScoresComponent,
+    SwapchainComponent,
+    PropertiesComponent,
+    QueuesComponent
   ],
   exports: [
     DevicesComponent,
     DeviceComponent,
-    ScoresComponent
+    ExtensionsComponent,
+    FeaturesComponent,
+    FormatsComponent,
+    MemoryComponent,
+    ScoresComponent,
+    SwapchainComponent,
+    PropertiesComponent,
+    QueuesComponent
   ]
 })
 export class DevicesModule { }
