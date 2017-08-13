@@ -17,6 +17,7 @@
     "rxjs": "5.1.1",
     "svg-inline-loader": "^0.8.0",
     "svg-url-loader": "^2.1.1",
+    "url-loader": "^0.5.9",
     "zone.js": "^0.7.7"
   },
   "devDependencies": {
