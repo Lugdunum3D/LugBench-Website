@@ -17,13 +17,16 @@ export const routes: Routes = [{
     pathMatch: 'full'
 }, {
     path: 'devices',
-    component: DevicesComponent
+    component: DevicesComponent,
+    pathMatch: 'full'
 }, {
     path: 'devices/:id/:tab',
     component: DeviceComponent,
+    pathMatch: 'full'
 }, {
     path: 'downloads',
-    component: DownloadsComponent
+    component: DownloadsComponent,
+    pathMatch: 'full'
 }];
 
 export const routing = RouterModule.forRoot(routes);

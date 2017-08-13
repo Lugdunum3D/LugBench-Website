@@ -2,7 +2,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/models/device';
 
 import { config } from '../config';
@@ -15,20 +15,34 @@ export class DevicesComponent {
     public devices: Device[];
 
     constructor(public http: Http, public router: Router) {
-      this.getDevices().subscribe(data => {
-        this.devices = data;
+        this.devices = new Array<Device>();
+    }
 
-        return data;
-      });
+    ngOnInit() {
+        this.getDevices().subscribe(data => {
+            this.devices = data;
+        });
+        window.setTimeout(_ => {
+            this.setLevels();
+        }, 1000);
     }
 
     getDevices(): Observable<Device[]> {
-      return this.http
-        .get(config.API_URL + '/devices')
-        .map(response => response.json().data);
+        return this.http
+            .get(config.API_URL + '/scores?populate=device&group=device')
+            // .get(config.API_URL + '/devices')
+            .map(response => response.json().data);
     }
 
-    public goToDevice(id: string): void {
-      this.router.navigateByUrl(`/devices/${id}/performances`);
+    public setLevels(): void {
+        this.devices.forEach(device => {
+            let deviceId = `device-${device['device']['_id']}`;
+            let averageFps = device['averageFps'];
+            (<HTMLElement>document.querySelector(`#${deviceId} .level-fps-wrapper .level-fps`)).style.width = `${averageFps / 300 * 100}%`;
+        });
+    }
+
+    public goToDevice(device: Device): void {
+        this.router.navigateByUrl(`/devices/${device['device']['_id']}/performances`);
     }
 }

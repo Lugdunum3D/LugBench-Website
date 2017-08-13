@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Device } from '../shared/models/device';
 
@@ -12,7 +12,4 @@ export class MemoryComponent {
 
     @Input('tabIndex')
     public tabIndex: String;
-
-    ngOnInit() {
-    }
 }

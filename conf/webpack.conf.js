@@ -5,6 +5,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const autoprefixer = require('autoprefixer');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin')
 
 module.exports = {
   module: {
@@ -12,7 +13,7 @@ module.exports = {
       {
         test: /\.json$/,
         loaders: [
-          'json-loader'
+          'json-loader',
         ]
       },
       {
@@ -30,6 +31,11 @@ module.exports = {
           'postcss-loader'
         ]
       },
+      {
+        test: /\.svg$/,
+        loader: 'svg-url-loader'
+      },
+      { test: /\.gif$/, loader: "url-loader?mimetype=image/gif" },
       {
         test: /\.ts$/,
         exclude: /node_modules/,
@@ -68,6 +74,10 @@ module.exports = {
         }
       },
       debug: true
+    }),
+    new ProvidePlugin({
+      "window.jQuery": "jquery",
+      Hammer: "hammerjs/hammer"
     })
   ],
   devtool: 'source-map',

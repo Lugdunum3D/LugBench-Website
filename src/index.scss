@@ -1,161 +1,23 @@
-html, body, #root {
-  margin: 0;
-  height: 100%;
-  font-family: 'Open Sans', sans-serif;
+nav { background-color: #383838 }
+.circle-element { border-radius: 0; width: 42px; height: 42px; }
+.clickable { cursor: pointer }
+.no-margin-bottom { margin-bottom: 0px; }
+.level-fps-wrapper {
+    padding: 0 !important; height: 20px;
+    .level-fps {
+        span { margin-left: 10px; }
+        position: absolute; background: #4db7ff; height: 100%; width: 0%; transition: width 750ms ease-in-out; color: white; }
 }
+.tabs .tab a { color: #4db7ff; opacity: 0.5; }
+.tabs .tab a:hover { color: #4db7ff; opacity: 0.7; }
+.tabs .tab a.active { color: #4db7ff; opacity: 1; }
+.tabs .indicator { background-color: #4db7ff; }
 
-body, h1, h2, h3 {
-  font-weight: 300
-}
-
-a {
-  color: white;
-  text-decoration: none;
-
-  &:hover {
-    color: #5aadbb;
-  }
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  background-color: #1f1f1f;
-}
-.header-title {
-  flex: 1;
-  font-size: 1.5rem;
-  margin: 1rem;
-}
-.header-date {
-  flex: 1;
-  text-align: right;
-  margin: 1rem;
-  color: white;
-}
-
-.title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background-color: #337ab7;
-  color: white;
-}
-.title-h1 {
-  font-weight: 300;
-  font-size: 4rem;
-  margin: 1rem;
-}
-.title-logo {
-  height: 12rem;
-  background-color: white;
-  border-radius: 1rem;
-  margin: 1rem;
-}
-.title-h2 {
-  font-weight: 300;
-  font-size: 2rem;
-  margin: .5rem;
-}
-
-.btn-download-container {
-  margin: 1rem 0;
-}
-
-.btn-download {
-  background-color: #286090;
-}
-
-.footer {
-  padding: 0.5rem;
-  font-size: 1rem;
-  background-color: #1f1f1f;
-  text-align: center;
-  color: white;
-}
-
-.gpus-container {
-  margin: 1rem;
-}
-
-.gpus-h2 {
-  font-weight: 300;
-  font-size: 1.5rem;
-}
-.gpus {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.table-gpus tr {
-  cursor: pointer;
-}
-
-.gpu {
-  height: 15rem;
-  width: 15rem;
-  border: 1px solid lightgray;
-  border-radius: 1rem;
-  margin: 1rem;
-  padding: 1rem;
-}
-.gpu-logo {
-  width: 5rem;
-  height: 5rem;
-  float: right;
-  margin: 0 0 .5rem .5rem;
-}
-.gpu-h3 {
-  font-size: 1.5rem;
-  margin: 0 0 2rem 0;
-}
-
-.tab { cursor: pointer;padding-left: 0; margin: auto auto; }
-.tab a { color: black; border-radius: 0px !important; }
-
-.no-padding { padding-left: 0 !important;padding-right: 0 !important; }
-.no-padding-left { padding-left: 0 !important; }
-.no-padding-right { padding-right: 0 !important; }
-
-.no-margin { margin-left: 0 !important;margin-right: 0 !important; }
-.no-margin-left { margin-left: 0 !important; }
-.no-margin-right { margin-right: 0 !important; }
-
-.nav-tabs > li > a { overflow: hidden; }
-
-.nav-tabs > li.active > a, .nav-tabs > li.active>a:focus, .nav-tabs > li.active > a:hover { border: none; border-bottom: 3px solid #337ab7; }
-.tab-list { display: none; height: 0px; list-style: none; padding-left: 0; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); position: absolute; width: 100%; background-color: white; top: 0; }
-.tab-list li { transition: background-color 0.2s; }
-.tab-list li a { color: inherit; text-decoration: none; padding: 11px; display: block; }
-.tab-list li:hover, .tab-list li.active { background-color: #337ab7; color: white; }
-.tab-list-trigger:hover > .tab-list { height: auto; display: block; }
-.section { margin-top: 20px }
-
-.logo { max-width: 20px; }
-.card { margin: 10px 0px; box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24); padding: 10px; height: 80px; display: flex; align-items: center; }
-.card:hover { cursor: pointer; }
-.key { width: 100px; }
-.rotating { animation: rotate-infinite 2s infinite; }
-.spinner { font-size: xx-large }
-@keyframes rotate-infinite {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.vertical-align {
-  height: 100%;
-  transform: translateY(50%);
+.banner-container {
+    img { width: 100%; }
+    .banner {
+        position: absolute;
+        z-index: 98;
+        color: white;
+    }
 }
