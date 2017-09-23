@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routing, RootComponent } from './routes.component';
 import { RouterModule } from '@angular/router';
 
+import * as $ from 'jquery';
+
 import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
 
@@ -16,12 +18,12 @@ import { DownloadsModule } from './downloads';
 
 @NgModule({
     imports: [
+        MaterializeModule,
         BrowserModule,
         routing,
         DevicesModule,
         DownloadsModule,
         RouterModule,
-        MaterializeModule,
     ],
     declarations: [
         RootComponent,

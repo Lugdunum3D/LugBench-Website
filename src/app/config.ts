@@ -1,4 +1,5 @@
 export const config = {
-    API_URL: 'https://lugbench-api-dev.herokuapp.com',
-    // API_URL: 'http://192.168.0.11:5000',
+    API_URL: 'https://api.lugbench.eu',
+    // API_URL: 'http://172.20.10.2:5000',
+    // API_URL: 'http://lugbench-api-dev.herokuapp.com',
 };

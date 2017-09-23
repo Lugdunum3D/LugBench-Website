@@ -48,7 +48,8 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
-      }
+      },
+      { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
     ]
   },
   plugins: [
@@ -78,7 +79,7 @@ module.exports = {
     new ProvidePlugin({
       "window.jQuery": "jquery",
       Hammer: "hammerjs/hammer"
-    })
+    }),
   ],
   devtool: 'source-map',
   output: {

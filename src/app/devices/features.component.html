@@ -12,11 +12,12 @@
           <tr *ngFor="let key of this.featureKeys">
             <td>{{ key }}</td>
             <td>
-              <span class="glyphicon"
+              <i class="material-icons green">check</i>
+              <!-- <span class="glyphicon"
                 [class.glyphicon-ok]="this.device.vulkanInfo.features[key] === true"
                 [class.text-success]="this.device.vulkanInfo.features[key] === true"
                 [class.glyphicon-remove]="this.device.vulkanInfo.features[key] === false"
-                [class.text-danger]="this.device.vulkanInfo.features[key] === false"
+                [class.text-danger]="this.de -->vice.vulkanInfo.features[key] === false"
               aria-hidden="true"></span>
             </td>
           </tr>

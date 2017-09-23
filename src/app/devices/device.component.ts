@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -26,6 +26,10 @@ export class DeviceComponent {
         this.deviceId = this.activatedRoute.params['value'].id;
         this.memoryTab = 'type';
         this.getDevice();
+    }
+
+    NgOnInit() {
+        (<any>$('.tabs')).tabs();
     }
 
     getDevice(): void {
