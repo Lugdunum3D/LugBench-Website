@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col s12">
+    <ul materialize="tabs" data-delay="50" class="tabs">
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'performances']">Performances</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'properties']">Properties</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'features']">Features</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'memory']">Memory</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'extensions']">Extensions</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'formats']">Formats</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'queues']">Queues</a></li>
+      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'swapchain']">Swapchain</a></li>
+    </ul>
+  </div>
+</div>
+<!-- <div class="side-nav-wrapper closed">
+  <ul class="side-nav no-padding" id="menu-categories">
+    <div class="side-nav-header-wrapper">
+      <img src="../../../assets/images/logo.svg">
+    </div>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'performances'">
+      <span class="icon-sidenav"><i class="fa fa-2x fa-tachometer" aria-hidden="true"></i></span>
+      <a [routerLink]="['/devices', this.deviceId, 'performances']" class="no-margin">
+        Performances
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'properties'">
+      <span class="icon-sidenav"><i class="fa fa-2x fa-cogs" aria-hidden="true"></i></span>
+      <a [routerLink]="['/devices', this.deviceId, 'properties']" class="no-margin">
+        Properties
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'features'">
+      <span class="icon-sidenav"><i class="fa fa-2x fa-list-alt" aria-hidden="true"></i></span>
+      <a [routerLink]="['/devices', this.deviceId, 'features']" class="no-margin">
+        Features
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding tab-list-trigger" [class.active]="tabIndex === 'memory'">
+      <span class="icon-sidenav"><i class="fa fa-2x fa-hdd-o" aria-hidden="true"></i></span>
+      <a class="no-margin">
+        Memory <i style="font-size: smaller;" class="glyphicon glyphicon-chevron-down"></i>
+      </a>
+      <ul class="tab-list">
+        <li>
+          <a [routerLink]="['/devices', this.deviceId, 'memorytype']">Memory type</a>
+        </li>
+        <li>
+          <a [routerLink]="['/devices', this.deviceId, 'memoryheap']">Memory heap</a>
+        </li>
+      </ul>
+    </li>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'extensions'">
+      <span class="icon-sidenav"><i class="fa fa-2x fa-puzzle-piece" aria-hidden="true"></i></span>
+      <a [routerLink]="['/devices', this.deviceId, 'extensions']" class="no-margin">
+        Extensions
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'formats'">
+      <a [routerLink]="['/devices', this.deviceId, 'formats']" class="no-margin">
+        Formats
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'queues'">
+      <a [routerLink]="['/devices', this.deviceId, 'queues']" class="no-margin">
+        Queues
+      </a>
+    </li>
+    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'swapchain'">
+      <span class="icon-sidenav"><i class="fa fa-2x fa-link" aria-hidden="true"></i></span>
+      <a [routerLink]="['/devices', this.deviceId, 'swapchain']" class="no-margin">
+        Swapchain
+      </a>
+    </li>
+  </ul>
+</div> -->
+<div class="content-tab">
+  <div class="container-fluid">
+    <div class="content" *ngIf="device">
+      <div id="performancesTab" class="tab-content" *ngIf="tabIndex === 'performances' && device.vulkanInfo.properties !== null">
+        <section class="section">
+          <div class="page-content">
+            <scores-component></scores-component>
+          </div>
+        </section>
+      </div>
+      <div id="propertiesTab" class="tab-content" *ngIf="tabIndex === 'properties' && device.vulkanInfo.properties !== null">
+      <properties-component [device]="device"></properties-component>
+    </div>
+    <div id="featuresTab" class="tab-content" *ngIf="tabIndex === 'features' && device.vulkanInfo.features !== null">
+      <features-component [device]="device"></features-component>
+    </div>
+    <div id="memoryTab" class="tab-content">
+      <memory-component [device]="device" [tabIndex]="tabIndex"></memory-component>
+    </div>
+    <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 'extensions' && this.device.vulkanInfo.extensions">
+      <extensions-component [device]="device"></extensions-component>
+    </div>
+    <div id="formatsTab" class="tab-content" *ngIf="tabIndex === 'formats' && device.vulkanInfo.formats !== null">
+      <div class="container-fluid section" style="overflow: auto">
+        <table class="table table-responsive table-bordered table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Buffer features</th>
+              <th>Linear tiling features</th>
+              <th>Optimal tiling features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let formatObject of this.device.vulkanInfo.formats">
+              <th>{{ formatObject[0] }}</th>
+              <td>
+                <span *ngFor="let feature of formatObject[1].bufferFeatures">
+                  {{ feature }}
+                </span>
+              </td>
+              <td>
+                <span *ngFor="let feature of formatObject[1].linearTilingFeatures">
+                  {{ feature }}
+                </span>
+              </td>
+              <td>
+                <span *ngFor="let feature of formatObject[1].optimalTilingFeatures">
+                  {{ feature }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 'queues' && device.vulkanInfo.queues !== null">
+      <queues-component [device]="device"></queues-component>
+    </div>
+    <div id="swapchainTab" class="tab-content" *ngIf="tabIndex === 'swapchain' && device.vulkanInfo.swapchain !== null">
+      <swapchain-component [device]="device"></swapchain-component>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="!device" style="margin-top: 50px;">
+    <i class="glyphicon glyphicon-repeat rotating spinner"></i>
+  </div>
+</div>

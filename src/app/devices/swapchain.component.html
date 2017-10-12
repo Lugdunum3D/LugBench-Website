@@ -1,0 +1,68 @@
+<section class="section">
+    <h3>Properties</h3>
+    <table class="table table-striped table-bordered table-responsive">
+        <tbody>
+            <tr>
+                <th>Max image array Layers</th>
+                <td>{{ swapchain.maxImageArrayLayers }}</td>
+            </tr>
+            <tr>
+                <th>Min image count</th>
+                <td>{{ swapchain.minImageCount }}</td>
+            </tr>
+            <tr>
+                <th>Max image count</th>
+                <td>{{ swapchain.maxImageCount }}</td>
+            </tr>
+            <tr>
+                <th>Surface extension</th>
+                <td>{{ swapchain.surfaceExtension }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Formats</h3>
+    <table class="table table-striped table-bordered table-responsive">
+        <tbody>
+            <tr *ngFor="let format of swapchain.formats; let indexFormat = index">
+                <th>{{ indexFormat }}</th>
+                <td>{{ format }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Present modes</h3>
+    <table class="table table-striped table-bordered table-responsive">
+        <tbody>
+            <tr *ngFor="let mode of swapchain.presentModes; let indexMode = index">
+                <th>#{{ indexMode }}</th>
+                <td>{{ mode }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Supported composite alpha</h3>
+    <table class="table table-striped table-bordered table-responsive">
+        <tbody>
+            <tr *ngFor="let composite of swapchain.supportedCompositeAlpha; let indexComposite = index">
+                <th>#{{ indexComposite }}</th>
+                <td>{{ composite }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Supported transforms</h3>
+    <table class="table table-striped table-bordered table-responsive">
+        <tbody>
+            <tr *ngFor="let transform of swapchain.supportedTransforms; let indexTransform = index">
+                <th>#{{ indexTransform }}</th>
+                <td>{{ transform }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Supported usage flags</h3>
+    <table class="table table-striped table-bordered table-responsive">
+        <tbody>
+            <tr *ngFor="let flag of swapchain.supportedUsageFlags; let indexFlag = index">
+                <th>#{{ indexFlag }}</th>
+                <td>{{ flag }}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
