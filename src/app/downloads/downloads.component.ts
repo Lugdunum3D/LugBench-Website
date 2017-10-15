@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
     selector: 'downloads-component',
     template: require('./downloads.component.html')
 })
-export class DownloadsComponent { }
+export class DownloadsComponent {}

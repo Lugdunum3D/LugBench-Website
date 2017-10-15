@@ -1,38 +1,63 @@
 <div class="parallax-container-custom-homepage">
-    <div class="parallax-custom-homepage">
-        <img src="https://raw.githubusercontent.com/Lugdunum3D/Visual-Identity/master/logo/dist/png/600dpi/lugbench-long.png" alt="">
-        <div class="container">
-            <h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nam harum magnam at, natus.
-            </h4>
-        </div>
-        <!-- <img src="https://raw.githubusercontent.com/Lugdunum3D/Visual-Identity/master/logo/dist/png/600dpi/lugbench-short.png" alt=""> -->
-        <!-- <img src="http://materializecss.com/images/parallax1.jpg" alt=""> -->
+  <div class="parallax-custom-homepage">
+    <img src="../../../assets/images/lugbench-long.png" alt="logo">
+    <div class="container">
+      <h4>
+        Découvrez les performances graphiques<br>de tous vos appareils
+      </h4>
     </div>
+    <div class="container text-center">
+      <a class="btn btn-large btn-download" href="#">
+        ANDROID
+      </a>
+      <a class="dropdown-button btn btn-large btn-download" data-activates="dropdown-windows">
+        WINDOWS
+      </a>
+      <ul id="dropdown-windows" class="dropdown-content">
+        <li>
+          <a href="#">x32</a>
+        </li>
+        <li>
+          <a href="#">x64</a>
+        </li>
+      </ul>
+      <a class="dropdown-button btn btn-large btn-download" data-activates="dropdown-linux">
+        LINUX
+      </a>
+      <ul id="dropdown-linux" class="dropdown-content">
+        <li>
+          <a href="#">x32</a>
+        </li>
+        <li>
+          <a href="#">x64</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class="container-custom-homepage">
-    <div class="container">
-        <div class="row list-devices" *ngIf="this.devices && this.devices.length > 0">
-            <h1 class="header">Devices</h1>
-            <a class="col s12 clickable" *ngFor="let device of this.devices" [routerLink]="[device.device._id, 'performances']">
-                <div class="card hoverable" [id]="'device-' + device.device._id">
-                    <div class="card-content">
-                        <div class="row no-margin-bottom">
-                            <div class="col m6 s2">
-                                <img class="circle circle-element" [src]="'./app/devices/images/' + device.device.os + '_logo.png'">
-                            </div>
-                            <div class="col s10">
-                                <span class="card-title">{{ device.device.name }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-action level-fps-wrapper">
-                        <div class="level-fps">
-                            <span>{{ device.averageFps | number: '.1-2' }} fps</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
+  <div class="container">
+    <div class="row list-devices" *ngIf="this.devices && this.devices.length > 0">
+      <h1 class="header">Devices</h1>
+      <a class="col s12 clickable" *ngFor="let device of this.devices" [routerLink]="[device.device._id, 'performances']">
+        <div class="card hoverable" [id]="'device-' + device.device._id">
+          <div class="card-content">
+            <div class="row no-margin-bottom">
+              <div class="col m6 s2">
+                <img class="circle circle-element" [src]="'./app/devices/images/' + device.device.os + '_logo.png'">
+              </div>
+              <div class="col s10">
+                <span class="card-title">{{ device.device.name }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-action level-fps-wrapper">
+            <div class="level-fps">
+              <span>{{ device.averageFps | number: '.1-2' }} fps</span>
+            </div>
+          </div>
         </div>
+      </a>
     </div>
+  </div>
 </div>
