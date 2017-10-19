@@ -24,8 +24,13 @@ export class DevicesComponent {
         });
         window.setTimeout(_ => {
             this.setLevels();
-            this.parallax();
         }, 1000);
+
+        $('.button-go-down').on('click', function(e) {
+          $('body').animate({
+            scrollTo: $('.container-custom-homepage').offset().top
+          }, 500);
+        });
     }
 
     getDevices(): Observable<Device[]> {
