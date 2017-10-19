@@ -1,47 +1,46 @@
-<div class="parallax-container-custom-homepage">
-  <div class="parallax-custom-homepage">
-    <img src="../../../assets/images/lugbench-long.png" alt="logo">
-    <div class="container">
-      <h4>
-        Découvrez les performances graphiques<br>de tous vos appareils
-      </h4>
-    </div>
-    <div class="container text-center">
-      <a class="btn btn-large btn-download" href="#">
-        ANDROID
-      </a>
-      <a class="btn btn-large btn-download" href="#">
-        WINDOWS
-      </a>
-      <a class="btn btn-large btn-download" href="#">
-        LINUX
-      </a>
-    </div>
-  </div>
-</div>
-<div class="container-custom-homepage">
-  <div class="container">
-    <div class="row list-devices" *ngIf="this.devices && this.devices.length > 0">
-      <h1 class="header">Devices</h1>
-      <a class="col s12 clickable" *ngFor="let device of this.devices" [routerLink]="[device.device._id, 'performances']">
-        <div class="card hoverable" [id]="'device-' + device.device._id">
-          <div class="card-content">
-            <div class="row no-margin-bottom">
-              <div class="col m6 s2">
-                <img class="circle circle-element" [src]="'./app/devices/images/' + device.device.os + '_logo.png'">
-              </div>
-              <div class="col s10">
-                <span class="card-title">{{ device.device.name }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="card-action level-fps-wrapper">
-            <div class="level-fps">
-              <span>{{ device.averageFps | number: '.1-2' }} fps</span>
-            </div>
-          </div>
+<header>
+    <div class="fullpage valign-wrapper">
+        <div class="content-text center-align">
+            <img class="logo-header" src="https://raw.githubusercontent.com/Lugdunum3D/Visual-Identity/master/logo/dist/png/300dpi/lugbench-long-dark.png" alt="LugBench">
+            <h4 class="presentation-text">Découvrez les performances graphiques<br/>de tous vos appareils</h4>
+            <a class="btn btn-large btn-download" href="#">
+                ANDROID
+            </a>
+            <a class="btn btn-large btn-download" href="#">
+                WINDOWS
+            </a>
+            <a class="btn btn-large btn-download" href="#">
+                LINUX
+            </a>
         </div>
-      </a>
     </div>
-  </div>
+    <div class="wrapper-arrow">
+        <a class="button-go-down"><i class="fa fa-arrow-down fa-2x" aria-hidden="true"></i></a>
+    </div>
+</header>
+<div class="container-custom-homepage">
+    <div class="container">
+        <div class="row list-devices" *ngIf="this.devices && this.devices.length > 0">
+            <h1 class="header">Devices</h1>
+            <a class="col s12 clickable" *ngFor="let device of this.devices" [routerLink]="[device.device._id, 'performances']">
+                <div class="card hoverable" [id]="'device-' + device.device._id">
+                    <div class="card-content">
+                        <div class="row no-margin-bottom">
+                            <div class="col m6 s2">
+                                <img class="circle circle-element" [src]="'./app/devices/images/' + device.device.os + '_logo.png'">
+                            </div>
+                            <div class="col s10">
+                                <span class="card-title">{{ device.device.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action level-fps-wrapper">
+                        <div class="level-fps">
+                            <span>{{ device.averageFps | number: '.1-2' }} fps</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
