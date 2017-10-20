@@ -26,7 +26,7 @@ export class DevicesComponent {
             this.setLevels();
         }, 1000);
 
-        $('.button-go-down').on('click', function(e) {
+        $('.button-go-down').on('click', e => {
           $('body').animate({
             scrollTo: $('.container-custom-homepage').offset().top
           }, 500);
@@ -40,7 +40,7 @@ export class DevicesComponent {
     }
 
     public setLevels(): void {
-        if(this.devices && this.devices.length > 0) {
+        if (this.devices && this.devices.length > 0) {
             this.devices.forEach(device => {
                 let deviceId = `device-${device['device']['_id']}`;
                 let averageFps = device['averageFps'];
