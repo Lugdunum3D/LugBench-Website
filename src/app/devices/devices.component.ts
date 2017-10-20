@@ -52,14 +52,4 @@ export class DevicesComponent {
     public goToDevice(device: Device): void {
         this.router.navigateByUrl(`/devices/${device['device']['_id']}/performances`);
     }
-
-    public parallax(): void {
-        let img = $('.parallax-custom-homepage img');
-        let imgHeight = img.height();
-        let textHeight = $('.parallax-custom-homepage .container *').height() + 50;
-        let d = 0;
-
-        $('.parallax-container-custom-homepage').css('min-height', `${imgHeight + textHeight}px`);
-        $('.parallax-custom-homepage').css('position', 'fixed');
-    }
 }

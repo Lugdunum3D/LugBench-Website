@@ -1,4 +1,4 @@
-nav { background-color: #383838 }
+nav { background-color: #383838; }
 .circle-element { border-radius: 0; width: 42px; height: 42px; }
 .clickable { cursor: pointer }
 .no-margin-bottom { margin-bottom: 0px; }
@@ -69,5 +69,40 @@ header {
 
   a {
     cursor: pointer;
+  }
+}
+
+.nav-separator {
+  margin-top: 64px;
+}
+
+/* OVERRIDES */
+.side-nav {
+  z-index: 996;
+}
+
+.nav-wrapper {
+  z-index: 999;
+}
+
+.brand-logo {
+  left: 32px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+
+  .logo-header {
+    max-width: 100%;
+  }
+
+  .presentation-text {
+    font-size: 1.5rem;
+  }
+
+  .side-nav {
+    z-index: 9999;
   }
 }

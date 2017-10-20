@@ -1,78 +1,22 @@
-<div class="row">
-  <div class="col s12">
-    <ul materialize="tabs" data-delay="50" class="tabs">
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'performances']">Performances</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'properties']">Properties</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'features']">Features</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'memory']">Memory</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'extensions']">Extensions</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'formats']">Formats</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'queues']">Queues</a></li>
-      <li class="tab"><a [routerLink]="['/devices', this.deviceId, 'swapchain']">Swapchain</a></li>
-    </ul>
-  </div>
-</div>
-<!-- <div class="side-nav-wrapper closed">
-  <ul class="side-nav no-padding" id="menu-categories">
-    <div class="side-nav-header-wrapper">
-      <img src="../../../assets/images/logo.svg">
-    </div>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'performances'">
-      <span class="icon-sidenav"><i class="fa fa-2x fa-tachometer" aria-hidden="true"></i></span>
-      <a [routerLink]="['/devices', this.deviceId, 'performances']" class="no-margin">
-        Performances
-      </a>
-    </li>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'properties'">
-      <span class="icon-sidenav"><i class="fa fa-2x fa-cogs" aria-hidden="true"></i></span>
-      <a [routerLink]="['/devices', this.deviceId, 'properties']" class="no-margin">
-        Properties
-      </a>
-    </li>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'features'">
-      <span class="icon-sidenav"><i class="fa fa-2x fa-list-alt" aria-hidden="true"></i></span>
-      <a [routerLink]="['/devices', this.deviceId, 'features']" class="no-margin">
-        Features
-      </a>
-    </li>
-    <li role="presentation" class="tab no-padding tab-list-trigger" [class.active]="tabIndex === 'memory'">
-      <span class="icon-sidenav"><i class="fa fa-2x fa-hdd-o" aria-hidden="true"></i></span>
-      <a class="no-margin">
-        Memory <i style="font-size: smaller;" class="glyphicon glyphicon-chevron-down"></i>
-      </a>
-      <ul class="tab-list">
-        <li>
-          <a [routerLink]="['/devices', this.deviceId, 'memorytype']">Memory type</a>
-        </li>
-        <li>
-          <a [routerLink]="['/devices', this.deviceId, 'memoryheap']">Memory heap</a>
-        </li>
-      </ul>
-    </li>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'extensions'">
-      <span class="icon-sidenav"><i class="fa fa-2x fa-puzzle-piece" aria-hidden="true"></i></span>
-      <a [routerLink]="['/devices', this.deviceId, 'extensions']" class="no-margin">
-        Extensions
-      </a>
-    </li>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'formats'">
-      <a [routerLink]="['/devices', this.deviceId, 'formats']" class="no-margin">
-        Formats
-      </a>
-    </li>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'queues'">
-      <a [routerLink]="['/devices', this.deviceId, 'queues']" class="no-margin">
-        Queues
-      </a>
-    </li>
-    <li role="presentation" class="tab no-padding" [class.active]="tabIndex === 'swapchain'">
-      <span class="icon-sidenav"><i class="fa fa-2x fa-link" aria-hidden="true"></i></span>
-      <a [routerLink]="['/devices', this.deviceId, 'swapchain']" class="no-margin">
-        Swapchain
-      </a>
-    </li>
-  </ul>
-</div> -->
+<ul id="slide-out" class="side-nav fixed">
+  <li class="nav-separator"></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'performances']"><i class="material-icons">trending_up</i>Performances</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'properties']"><i class="material-icons">subject</i>Properties</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'features']"><i class="material-icons">star_rate</i>Features</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'memory']"><i class="material-icons">memory</i>Memory</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'extensions']"><i class="material-icons">extension</i>Extensions</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'formats']"><i class="material-icons">format_align_center</i>Formats</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'queues']"><i class="material-icons">queue</i>Queues</a></li>
+  <li>
+    <a [routerLink]="['/devices', this.deviceId, 'swapchain']"><i class="material-icons">link</i>Swapchain</a></li>
+</ul>
 <div class="content-tab">
   <div class="container-fluid">
     <div class="content" *ngIf="device">
@@ -89,7 +33,7 @@
     <div id="featuresTab" class="tab-content" *ngIf="tabIndex === 'features' && device.vulkanInfo.features !== null">
       <features-component [device]="device"></features-component>
     </div>
-    <div id="memoryTab" class="tab-content">
+    <div id="memoryTab" class="tab-content" *ngIf="tabIndex === 'memory'">
       <memory-component [device]="device" [tabIndex]="tabIndex"></memory-component>
     </div>
     <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 'extensions' && this.device.vulkanInfo.extensions">

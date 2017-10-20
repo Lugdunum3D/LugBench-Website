@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -28,8 +28,14 @@ export class DeviceComponent {
         this.getDevice();
     }
 
-    NgOnInit() {
-        (<any>$('.tabs')).tabs();
+    ngOnInit() {
+        (<any>$('.button-collapse')).sideNav({
+            closeOnClick: true,
+        });
+    }
+
+    ngOnDestroy() {
+        $('header, main,  footer').css('padding-left', '0px');
     }
 
     getDevice(): void {
