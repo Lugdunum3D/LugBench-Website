@@ -28,7 +28,11 @@ export class DeviceComponent {
         this.getDevice();
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        (<any>$('.button-collapse')).sideNav({
+            closeOnClick: true,
+        });
+    }
 
     ngOnDestroy() {
         $('header, main,  footer').css('padding-left', '0px');
