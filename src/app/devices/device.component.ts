@@ -32,6 +32,13 @@ export class DeviceComponent {
         (<any>$('.button-collapse')).sideNav({
             closeOnClick: true,
         });
+
+        if (!$('.side-nav').offset().left) {
+            $('header, main, footer').css('padding-left', '300px');
+            $('.button-collapse').hide();
+        } else {
+            $('.button-collapse').show();
+        }
     }
 
     ngOnDestroy() {
