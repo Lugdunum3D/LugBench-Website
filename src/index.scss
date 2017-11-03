@@ -1,18 +1,28 @@
+$primary-color: #4db7ff;
+
+
 nav { background-color: #383838; }
 .circle-element { border-radius: 0; width: 42px; height: 42px; }
 .clickable { cursor: pointer }
+
+.framed {
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 5px;
+  box-sizing: border-box;
+}
+
 .no-margin-bottom { margin-bottom: 0px; }
 .level-fps-wrapper {
     padding: 0 !important; height: 20px;
     .level-fps {
-        position: absolute; background: #4db7ff; height: 100%; width: 0%; transition: width 750ms ease-in-out; color: white; }
+        position: absolute; background: $primary-color; height: 100%; width: 0%; transition: width 750ms ease-in-out; color: white; }
         span { position: absolute; margin-left: 10px; min-width: 100px; }
 }
 
-.tabs .tab a { color: #4db7ff; opacity: 0.5; }
-.tabs .tab a:hover { color: #4db7ff; opacity: 0.7; }
-.tabs .tab a.active { color: #4db7ff; opacity: 1; }
-.tabs .indicator { background-color: #4db7ff; }
+.tabs .tab a { color: $primary-color; opacity: 0.5; }
+.tabs .tab a:hover { color: $primary-color; opacity: 0.7; }
+.tabs .tab a.active { color: $primary-color; opacity: 1; }
+.tabs .indicator { background-color: $primary-color; }
 
 .parallax-container-custom-homepage {
     width: 100%;
@@ -29,6 +39,7 @@ nav { background-color: #383838; }
     min-height: calc(100vh - 64px);
     box-shadow: 0px -6px 12px 0px rgba(0, 0, 0, 0.05);
     background-color: white;
+    padding-top: 64px;
 
 }
 .presentation-text {
@@ -87,6 +98,11 @@ header {
 
 .brand-logo {
   left: 32px;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: white;
 }
 
 @media only screen and (max-width : 992px) {
