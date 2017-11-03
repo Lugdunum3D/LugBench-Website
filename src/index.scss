@@ -129,3 +129,23 @@ header {
 .menu {
   cursor: pointer;
 }
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+#features {
+  margin-top: 20px;
+  .card {
+    font-weight: bold;
+    overflow-wrap: break-word;
+    padding: 50px !important;
+    font-weight: 18px !important;
+  }
+}
