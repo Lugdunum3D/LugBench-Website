@@ -14,6 +14,7 @@
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "ng2-bootstrap": "^1.6.1",
+    "ng2-simple-page-scroll": "^2.0.0",
     "raw-loader": "^0.5.1",
     "rxjs": "5.1.1",
     "svg-inline-loader": "^0.8.0",

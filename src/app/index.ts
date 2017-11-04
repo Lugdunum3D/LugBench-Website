@@ -7,6 +7,8 @@ import * as $ from 'jquery';
 
 import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
+import { Ng2SimplePageScrollModule } from 'ng2-simple-page-scroll';
+
 
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header.component';
@@ -24,6 +26,7 @@ import { DownloadsModule } from './downloads';
         DevicesModule,
         DownloadsModule,
         RouterModule,
+        Ng2SimplePageScrollModule.forRoot(),
     ],
     declarations: [
         RootComponent,
