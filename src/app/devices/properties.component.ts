@@ -18,7 +18,7 @@ export class PropertiesComponent {
         this.sparsePropertyKeys = new Array<String>();
         this.limitKeys = new Array<String>();
 
-        for (let key in this.device.vulkanInfo.properties.sparseProperties) {
+        for (let key in this.properties.sparseProperties) {
             if (this.device.vulkanInfo.properties.sparseProperties[key] !== null) {
                 this.sparsePropertyKeys.push(key);
             }

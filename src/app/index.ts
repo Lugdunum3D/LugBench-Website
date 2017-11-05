@@ -9,7 +9,6 @@ import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
 import { Ng2SimplePageScrollModule } from 'ng2-simple-page-scroll';
 
-
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header.component';
 import { TitleComponent } from './title.component';
@@ -17,6 +16,8 @@ import { FooterComponent } from './footer.component';
 
 import { DevicesModule } from './devices';
 import { DownloadsModule } from './downloads';
+
+import { ReplaceCommasPipe } from './replace.pipe';
 
 @NgModule({
     imports: [
@@ -34,6 +35,7 @@ import { DownloadsModule } from './downloads';
         HeaderComponent,
         TitleComponent,
         FooterComponent,
+        ReplaceCommasPipe,
     ],
     bootstrap: [MainComponent]
 })
