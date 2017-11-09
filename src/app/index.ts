@@ -17,8 +17,6 @@ import { FooterComponent } from './footer.component';
 import { DevicesModule } from './devices';
 import { DownloadsModule } from './downloads';
 
-import { ReplaceCommasPipe } from './replace.pipe';
-
 @NgModule({
     imports: [
         MaterializeModule,
@@ -35,7 +33,6 @@ import { ReplaceCommasPipe } from './replace.pipe';
         HeaderComponent,
         TitleComponent,
         FooterComponent,
-        ReplaceCommasPipe,
     ],
     bootstrap: [MainComponent]
 })

@@ -89,14 +89,21 @@
         <table class="table table-striped table-bordered table-responsive">
           <thead>
             <tr>
-              <th width="30%">Limit Name</th>
-              <th width="70%">Values</th>
+              <th width="60%">Limit Name</th>
+              <th width="40%">Values</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let limitKey of this.limitKeys">
               <td>{{ limitKey }}</td>
-              <td [innerHTML]="this.device.vulkanInfo.properties.limits[limitKey] | replaceCommas"></td>
+              <td *ngIf="this.device.vulkanInfo.properties.limits[limitKey].length > 0">
+                  <tr *ngFor="let limit of this.device.vulkanInfo.properties.limits[limitKey]">
+                    {{ limit }}
+                  </tr>
+              </td>
+              <td *ngIf="!this.device.vulkanInfo.properties.limits[limitKey].length">
+                {{ this.device.vulkanInfo.properties.limits[limitKey] }}
+              </td>
             </tr>
           </tbody>
         </table>
