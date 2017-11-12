@@ -36,42 +36,11 @@
     <div id="memoryTab" class="tab-content" *ngIf="tabIndex === 'memory'">
       <memory-component [device]="device" [tabIndex]="tabIndex"></memory-component>
     </div>
-    <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 'extensions' && this.device.vulkanInfo.extensions">
+    <div id="extensionsTab" class="tab-content" *ngIf="tabIndex === 'extensions' && device.vulkanInfo.extensions !== null">
       <extensions-component [device]="device"></extensions-component>
     </div>
     <div id="formatsTab" class="tab-content" *ngIf="tabIndex === 'formats' && device.vulkanInfo.formats !== null">
-      <div class="container-fluid section" style="overflow: auto">
-        <table class="table table-responsive table-bordered table-striped">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Buffer features</th>
-              <th>Linear tiling features</th>
-              <th>Optimal tiling features</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let formatObject of this.device.vulkanInfo.formats">
-              <th>{{ formatObject[0] }}</th>
-              <td>
-                <span *ngFor="let feature of formatObject[1].bufferFeatures">
-                  {{ feature }}
-                </span>
-              </td>
-              <td>
-                <span *ngFor="let feature of formatObject[1].linearTilingFeatures">
-                  {{ feature }}
-                </span>
-              </td>
-              <td>
-                <span *ngFor="let feature of formatObject[1].optimalTilingFeatures">
-                  {{ feature }}
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <formats-component [device]="device"></formats-component>
     </div>
     <div id="queuesTab" class="tab-content" *ngIf="tabIndex === 'queues' && device.vulkanInfo.queues !== null">
       <queues-component [device]="device"></queues-component>

@@ -30,7 +30,7 @@ import { SwapchainComponent } from './swapchain.component';
     ScoresComponent,
     SwapchainComponent,
     PropertiesComponent,
-    QueuesComponent
+    QueuesComponent,
   ],
   exports: [
     DevicesComponent,
@@ -42,7 +42,7 @@ import { SwapchainComponent } from './swapchain.component';
     ScoresComponent,
     SwapchainComponent,
     PropertiesComponent,
-    QueuesComponent
+    QueuesComponent,
   ]
 })
 export class DevicesModule { }

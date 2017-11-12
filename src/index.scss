@@ -163,7 +163,15 @@ header {
     font-weight: 18px !important;
   }
 }
-#properties, #memory, #extensions {
+#formats {
+  .card-title {
+    margin-bottom: 20px;
+  }
+  .format-title {
+    font-size: initial;
+  }
+}
+#properties, #memory, #extensions, #formats {
   .card-title {
     font-size: 2.56em;
     font-weight: initial;

@@ -1,0 +1,65 @@
+<div id="formats" class="container">
+  <section class="section">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">Formats</div>
+        <div *ngFor="let formatObject of this.device.vulkanInfo.formats" class="card">
+          <div class="card-content">
+            <strong class="format-title">{{ formatObject[0] }}</strong>
+            <table *ngIf="formatObject[1].bufferFeatures.length > 0"
+                  class="table table-responsive table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th width="100%">Buffer features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span *ngFor="let feature of formatObject[1].bufferFeatures">
+                      {{ feature }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table *ngIf="formatObject[1].linearTilingFeatures.length > 0"
+                  class="table table-responsive table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th width="100%">Linear tiling features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span *ngFor="let feature of formatObject[1].linearTilingFeatures">
+                      {{ feature }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table *ngIf="formatObject[1].optimalTilingFeatures.length > 0"
+                  class="table table-responsive table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th width="100%">Optimal tiling features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span *ngFor="let feature of formatObject[1].optimalTilingFeatures">
+                      {{ feature }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+	</section>
+</div>
