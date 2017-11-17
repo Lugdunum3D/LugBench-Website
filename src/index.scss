@@ -171,7 +171,12 @@ header {
     font-size: initial;
   }
 }
-#properties, #memory, #extensions, #formats {
+#queues {
+  table tr td:first-child {
+    font-weight: bold;
+  }
+}
+#properties, #memory, #extensions, #formats, #queues, #swapchain {
   .card-title {
     font-size: 2.56em;
     font-weight: initial;
