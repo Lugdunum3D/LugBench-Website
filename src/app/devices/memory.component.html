@@ -1,74 +1,74 @@
-<div class="container">
+<div id="memory" class="container">
   <section class="section">
-    <div class="page-header">
-      <h2>Memory type</h2>
-    </div>
-    <div class="page-content" style="overflow: auto">
-      <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryType of device.vulkanInfo.memory.memoryTypes; let heapIndex = index">
-        <thead>
-          <tr>
-            <th colspan="2">
-              Memory type {{ heapIndex }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="key">
-              <span>Heapindex</span>
-            </td>
-            <td>
-              <span>{{ memoryType.heapIndex }}</span>
-            </td>
-          </tr>
-          <tr>
-            <td class="key">Flags</td>
-            <td *ngIf="memoryType.propertyFlags && memoryType.propertyFlags.length">
-              <span *ngFor="let propertyFlag of memoryType.propertyFlags">
-                {{ propertyFlag }},
-              </span>
-            </td>
-            <td *ngIf="!memoryType.propertyFlags || !memoryType.propertyFlags.length">
-              <span>
-                No flags
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="card fade-up">
+      <div class="card-content">
+        <div class="card-title">Memory type</div>
+        <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryType of device.vulkanInfo.memory.memoryTypes; let heapIndex = index">
+          <thead>
+            <tr>
+              <th colspan="2">
+                Memory type {{ heapIndex }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="key" width="30%">
+                <span>Heapindex</span>
+              </td>
+              <td width="70%">
+                <span>{{ memoryType.heapIndex }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="key" width="30%">Flags</td>
+              <td *ngIf="memoryType.propertyFlags && memoryType.propertyFlags.length" width="70%">
+                <tr *ngFor="let propertyFlag of memoryType.propertyFlags">
+                  {{ propertyFlag }}
+                </tr>
+              </td>
+              <td *ngIf="!memoryType.propertyFlags || !memoryType.propertyFlags.length" width="70%">
+                <span>
+                  No flags
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
   <section class="section">
-    <div class="page-header">
-      <h2>Memory heap</h2>
-    </div>
-    <div class="page-content" style="overflow: auto">
-      <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryHeap of this.device.vulkanInfo.memory.memoryHeaps; let memoryHeapIndex = index">
-        <thead>
-          <tr>
-            <th colspan="2">
-              Memory heap {{ memoryHeapIndex }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="key">Memory size</th>
-            <td>{{ memoryHeap.size }}</td>
-          </tr>
-          <tr>
-            <th class="key">Property flags</th>
-            <td *ngIf="memoryHeap.flags.length">
-              <div *ngFor="let flag of memoryHeap.flags">
-                {{ flag }}
-              </div>
-            </td>
-            <td *ngIf="!memoryHeap.flags.length">
-              <div>No flags</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="card fade-up">
+      <div class="card-content">
+        <div class="card-title">Memory heap</div>
+        <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryHeap of this.device.vulkanInfo.memory.memoryHeaps; let memoryHeapIndex = index">
+          <thead>
+            <tr>
+              <th colspan="2">
+                Memory heap {{ memoryHeapIndex }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="key" width="30%">Memory size</td>
+              <td width="70%">{{ memoryHeap.size }}</td>
+            </tr>
+            <tr>
+              <td class="key" width="30%">Property flags</td>
+              <td *ngIf="memoryHeap.flags.length" width="70%">
+                <div *ngFor="let flag of memoryHeap.flags">
+                  {{ flag }}
+                </div>
+              </td>
+              <td *ngIf="!memoryHeap.flags.length" width="70%">
+                <div>No flags</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </div>

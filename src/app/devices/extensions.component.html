@@ -1,16 +1,23 @@
-<section class="section">
-  <table class="table table-striped table-bordered table-responsive">
-    <thead>
-      <tr>
-        <th>Extension name</th>
-        <th>Spec Version</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let extension of this.device.vulkanInfo.extensions">
-        <td>{{ extension.extensionName }}</td>
-        <td>{{ extension.specVersion }}</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+<div id="extensions" class="container">
+  <section class="section">
+    <div class="card fade-up">
+      <div class="card-content">
+        <div class="card-title">Extensions</div>
+        <table class="table table-striped table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th width="50%">Extension name</th>
+              <th width="50%">Spec Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let extension of this.device.vulkanInfo.extensions">
+              <td>{{ extension.extensionName }}</td>
+              <td>{{ extension.specVersion }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

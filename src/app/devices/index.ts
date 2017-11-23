@@ -14,6 +14,8 @@ import { QueuesComponent } from './queues.component';
 import { ScoresComponent } from './scores.component';
 import { SwapchainComponent } from './swapchain.component';
 
+import { RoundPipe } from './round.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { SwapchainComponent } from './swapchain.component';
     ScoresComponent,
     SwapchainComponent,
     PropertiesComponent,
-    QueuesComponent
+    QueuesComponent,
+    RoundPipe,
   ],
   exports: [
     DevicesComponent,
@@ -42,7 +45,8 @@ import { SwapchainComponent } from './swapchain.component';
     ScoresComponent,
     SwapchainComponent,
     PropertiesComponent,
-    QueuesComponent
+    QueuesComponent,
+    RoundPipe,
   ]
 })
 export class DevicesModule { }

@@ -1,117 +1,113 @@
-<section class="section">
-  <div class="page-header">
-    <h2>Device information</h2>
-  </div>
-  <div class="page-content" style="overflow: auto">
-    <table class="table table-striped table-bordered table-responsive">
-      <thead>
-        <tr>
-          <td>Name</td>
-          <td>Values</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Vendor ID</td>
-          <td>{{ device.vulkanInfo.properties.vendorID }}</td>
-        </tr>
-        <tr>
-          <td>Device ID</td>
-          <td>{{ device.vulkanInfo.properties.deviceID }}</td>
-        </tr>
-        <tr>
-          <td>Device Name</td>
-          <td>{{ device.vulkanInfo.properties.deviceName }}</td>
-        </tr>
-        <tr>
-          <td>Device Type</td>
-          <td>{{ device.vulkanInfo.properties.deviceType }}</td>
-        </tr>
-        <tr>
-          <td>Pipeline cache UUID</td>
-          <td>{{ device.vulkanInfo.properties.pipelineCacheUUID }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-<section class="section">
-  <div class="page-header">
-    <h2>Version information</h2>
-  </div>
-  <div class="page-content">
-    <table class="table table-striped table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Major</th>
-          <th>Minor</th>
-          <th>Patch</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Api version</td>
-          <td>{{ device.vulkanInfo.properties.apiVersion.major }}</td>
-          <td>{{ device.vulkanInfo.properties.apiVersion.minor }}</td>
-          <td>{{ device.vulkanInfo.properties.apiVersion.patch }}</td>
-        </tr>
-        <tr>
-          <td>Driver Version</td>
-          <td>{{ device.vulkanInfo.properties.driverVersion.major }}</td>
-          <td>{{ device.vulkanInfo.properties.driverVersion.minor }}</td>
-          <td>{{ device.vulkanInfo.properties.driverVersion.patch }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-<section>
-  <div class="page-header">
-    <h2>Sparse properties</h2>
-  </div>
-  <div class="page-content">
-    <table class="table table-striped table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th>Property name</th>
-          <th>Active</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let key of this.sparsePropertyKeys">
-          <td>{{ key }}</td>
-          <td>
-            <span class="glyphicon"
-              [class.glyphicon-ok]="this.device.vulkanInfo.properties['sparseProperties'][key] === true"
-              [class.text-success]="this.device.vulkanInfo.properties['sparseProperties'][key] === true"
-              [class.glyphicon-remove]="this.device.vulkanInfo.properties['sparseProperties'][key] === false"
-              [class.text-danger]="this.device.vulkanInfo.properties['sparseProperties'][key] === false"
-            aria-hidden="true"></span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-<section>
-  <div class="page-header">
-    <h2>Limits</h2>
-  </div>
-  <div class="page-content" style="overflow: auto">
-    <table class="table table-striped table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th>Limit Name</th>
-          <th>Values</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let key of this.limitKeys">
-          <td>{{ key }}</td>
-          <td>{{ this.device.vulkanInfo.properties.limits[key] }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+<div id="properties" class="container">
+  <section class="section">
+    <div class="card fade-up">
+      <div class="card-content">
+        <div class="card-title">Device information</div>
+        <table class="table table-striped table-bordered table-responsive">
+          <thead>
+            <tr>
+              <td width="30%">Name</td>
+              <td width="70%">Values</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vendor ID</td>
+              <td>{{ device.vulkanInfo.properties.vendorID }}</td>
+            </tr>
+            <tr>
+              <td>Device ID</td>
+              <td>{{ device.vulkanInfo.properties.deviceID }}</td>
+            </tr>
+            <tr>
+              <td>Device Name</td>
+              <td>{{ device.vulkanInfo.properties.deviceName }}</td>
+            </tr>
+            <tr>
+              <td>Device Type</td>
+              <td width="70%">{{ device.vulkanInfo.properties.deviceType }}</td>
+            </tr>
+            <tr>
+              <td>Pipeline cache UUID</td>
+              <td>{{ device.vulkanInfo.properties.pipelineCacheUUID }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">Version information</div>
+        <table class="table table-striped table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th width="40%"></th>
+              <th width="20%" class="text-center">Major</th>
+              <th width="20%" class="text-center">Minor</th>
+              <th width="20%" class="text-center">Patch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Api version</td>
+              <td class="text-center">{{ device.vulkanInfo.properties.apiVersion.major }}</td>
+              <td class="text-center">{{ device.vulkanInfo.properties.apiVersion.minor }}</td>
+              <td class="text-center">{{ device.vulkanInfo.properties.apiVersion.patch }}</td>
+            </tr>
+            <tr>
+              <td>Driver Version</td>
+              <td class="text-center">{{ device.vulkanInfo.properties.driverVersion.major }}</td>
+              <td class="text-center">{{ device.vulkanInfo.properties.driverVersion.minor }}</td>
+              <td class="text-center">{{ device.vulkanInfo.properties.driverVersion.patch }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">Sparse properties</div>
+        <div *ngFor="let sparsePropertyKey of this.sparsePropertyKeys" class="row">
+          <div
+            [class.green]="this.properties.sparseProperties[sparsePropertyKey] === true"
+            [class.red]="this.properties.sparseProperties[sparsePropertyKey] === false"
+            class="col s12 card card-sparse lighten-4 text-center">
+              {{ sparsePropertyKey }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">Limits</div>
+        <table class="table table-striped table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th width="60%">Limit Name</th>
+              <th width="40%">Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let limitKey of this.limitKeys">
+              <td>{{ limitKey }}</td>
+              <td *ngIf="this.device.vulkanInfo.properties.limits[limitKey].length > 0">
+                  <tr *ngFor="let limit of this.device.vulkanInfo.properties.limits[limitKey]">
+                    {{ limit }}
+                  </tr>
+              </td>
+              <td *ngIf="!this.device.vulkanInfo.properties.limits[limitKey].length">
+                {{ this.device.vulkanInfo.properties.limits[limitKey] }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

@@ -13,12 +13,18 @@ import { Score } from '../shared/models/score';
 })
 export class ScoresComponent {
     private scores: Score[];
-    private tab;
+    private max;
 
     constructor(private http: Http, private activatedRoute: ActivatedRoute) {
         let id = this.activatedRoute.params['value'].id;
         this.getScores(id).subscribe(response => {
             this.scores = response;
+            this.max = this.scores[0].averageFps;
+            for (let i = 0; i < this.scores.length; i++) {
+                if (this.scores[i].averageFps > this.max) {
+                    this.max = this.scores[i].averageFps;
+                }
+            }
         });
     }
 

@@ -4,6 +4,7 @@ import 'zone.js/dist/zone';
 import '@angular/common';
 import 'rxjs';
 
+import './circle.css';
 import './index.scss';
 
 import {enableProdMode} from '@angular/core';

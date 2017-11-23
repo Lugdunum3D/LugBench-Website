@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { SimplePageScrollService } from 'ng2-simple-page-scroll';
 
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/models/device';
@@ -14,7 +15,7 @@ import { config } from '../config';
 export class DevicesComponent {
     public devices: Device[];
 
-    constructor(public http: Http, public router: Router) {
+    constructor(public http: Http, public router: Router, private simplePageScrollService: SimplePageScrollService) {
         this.devices = new Array<Device>();
     }
 
@@ -25,12 +26,10 @@ export class DevicesComponent {
         window.setTimeout(_ => {
             this.setLevels();
         }, 1000);
+    }
 
-        $('.button-go-down').on('click', e => {
-          $('body').animate({
-            scrollTo: $('.container-custom-homepage').offset().top
-          }, 500);
-        });
+    goToDevices(): void {
+      this.simplePageScrollService.scrollToElement('#devices', 0);
     }
 
     getDevices(): Observable<Device[]> {
