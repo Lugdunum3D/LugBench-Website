@@ -50,6 +50,9 @@ nav { background-color: #383838; }
 }
 .list-devices {
     margin-bottom: 0;
+    h1 {
+      padding-top: 20px;
+    }
 }
 
 .btn-download {
@@ -121,4 +124,8 @@ header {
   .side-nav {
     z-index: 9999;
   }
+}
+
+.menu {
+  cursor: pointer;
 }
