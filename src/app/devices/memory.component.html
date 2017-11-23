@@ -1,6 +1,6 @@
 <div id="memory" class="container">
   <section class="section">
-    <div class="card">
+    <div class="card fade-up">
       <div class="card-content">
         <div class="card-title">Memory type</div>
         <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryType of device.vulkanInfo.memory.memoryTypes; let heapIndex = index">
@@ -39,7 +39,7 @@
     </div>
   </section>
   <section class="section">
-    <div class="card">
+    <div class="card fade-up">
       <div class="card-content">
         <div class="card-title">Memory heap</div>
         <table class="table table-striped table-bordered table-responsive" *ngFor="let memoryHeap of this.device.vulkanInfo.memory.memoryHeaps; let memoryHeapIndex = index">

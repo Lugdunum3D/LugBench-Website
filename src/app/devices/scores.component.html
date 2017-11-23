@@ -1,23 +1,19 @@
-<table class="table table-striped table-bordered table-responsive" *ngFor="let score of this.scores">
-    <thead>
-        <tr>
-            <th>
-                Scenario {{ score.scenario }}
-            </th>
-            <th>{{ score.date | date:'longDate' }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="key">Average fps</td>
-            <td>{{ score.averageFps | number: '.2' }}</td>
-        </tr>
-        <tr>
-            <td class="key">Number of frames</td>
-            <td>{{ score.nbFrames }}</td>
-        </tr>
-    </tbody>
-</table>
-<div *ngIf="this.scores === undefined || !this.scores.length">
-    <h2>No scores</h2>
+<div class="row">
+    <div *ngFor="let score of this.scores">
+        <div class="col l3 m4 s4">
+            <div class="card card-score fade-up">
+                <div class="card-content">
+                    <div class="c100 p{{ score.averageFps / this.max * 100 | round }}">
+                        <span>{{ score.averageFps | round }} fps</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                    <p>{{ score.nbFrames }} Number of frames</p>
+                    <p>{{ score.date | date:'longDate' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

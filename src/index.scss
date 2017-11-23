@@ -88,6 +88,19 @@ header {
   margin-top: 64px;
 }
 
+/* SCORES */
+.card.card-score {
+  min-height: 170px;
+}
+
+.card.card-score .card-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 /* OVERRIDES */
 .side-nav {
   z-index: 996;
@@ -217,4 +230,28 @@ video#bgvid {
   i {
     font-size: 50px;
   }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    margin-top: 120px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+.fade-up {
+  animation-name: fade-up;
+  animation-fill-mode: forwards;
+  animation-duration: 700ms;
+}
+
+.fade-up-1 {
+  opacity: 0;
+  animation-name: fade-up;
+  animation-fill-mode: forwards;
+  animation-duration: 700ms;
+  animation-delay: 700ms;
 }

@@ -11,7 +11,7 @@ import { FormatsComponent } from './formats.component';
 import { MemoryComponent } from './memory.component';
 import { PropertiesComponent } from './properties.component';
 import { QueuesComponent } from './queues.component';
-import { ScoresComponent } from './scores.component';
+import { ScoresComponent, RoundPipe } from './scores.component';
 import { SwapchainComponent } from './swapchain.component';
 
 @NgModule({
@@ -31,6 +31,7 @@ import { SwapchainComponent } from './swapchain.component';
     SwapchainComponent,
     PropertiesComponent,
     QueuesComponent,
+    RoundPipe,
   ],
   exports: [
     DevicesComponent,
@@ -43,6 +44,7 @@ import { SwapchainComponent } from './swapchain.component';
     SwapchainComponent,
     PropertiesComponent,
     QueuesComponent,
+    RoundPipe,
   ]
 })
 export class DevicesModule { }

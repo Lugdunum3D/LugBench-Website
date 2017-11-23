@@ -1,20 +1,20 @@
 <ul id="slide-out" class="side-nav fixed">
   <li class="nav-separator"></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'performances'}">
     <a [routerLink]="['/devices', this.deviceId, 'performances']"><i class="material-icons">trending_up</i>Performances</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'properties'}">
     <a [routerLink]="['/devices', this.deviceId, 'properties']"><i class="material-icons">subject</i>Properties</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'features'}">
     <a [routerLink]="['/devices', this.deviceId, 'features']"><i class="material-icons">star_rate</i>Features</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'memory'}">
     <a [routerLink]="['/devices', this.deviceId, 'memory']"><i class="material-icons">memory</i>Memory</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'extensions'}">
     <a [routerLink]="['/devices', this.deviceId, 'extensions']"><i class="material-icons">extension</i>Extensions</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'formats'}">
     <a [routerLink]="['/devices', this.deviceId, 'formats']"><i class="material-icons">format_align_center</i>Formats</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'queues'}">
     <a [routerLink]="['/devices', this.deviceId, 'queues']"><i class="material-icons">queue</i>Queues</a></li>
-  <li>
+  <li [ngClass]="{'active' : tabIndex === 'swapchain'}">
     <a [routerLink]="['/devices', this.deviceId, 'swapchain']"><i class="material-icons">link</i>Swapchain</a></li>
 </ul>
 <div class="content-tab">

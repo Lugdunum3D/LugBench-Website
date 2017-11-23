@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-content">
         <div class="card-title">Formats</div>
-        <div *ngFor="let formatObject of this.device.vulkanInfo.formats" class="card">
+        <div *ngFor="let formatObject of this.device.vulkanInfo.formats" class="card fade-up-1">
           <div class="card-content">
             <strong class="format-title">{{ formatObject[0] }}</strong>
             <table *ngIf="formatObject[1].bufferFeatures.length > 0"
