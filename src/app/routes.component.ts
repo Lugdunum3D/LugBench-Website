@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DevicesComponent } from './devices/devices.component';
 import { DeviceComponent } from './devices/device.component';
-import { DownloadsComponent } from './downloads/downloads.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @Component({
     selector: 'lugbench-root',
@@ -13,8 +13,12 @@ export class RootComponent { }
 
 export const routes: Routes = [{
     path: '',
-    redirectTo: 'devices',
-    pathMatch: 'full'
+    redirectTo: 'homepage',
+    pathMatch: 'full',
+},{
+    path: 'homepage',
+    component: HomepageComponent,
+    pathMatch: 'full',
 }, {
     path: 'devices',
     component: DevicesComponent,
@@ -22,10 +26,6 @@ export const routes: Routes = [{
 }, {
     path: 'devices/:id/:tab',
     component: DeviceComponent,
-    pathMatch: 'full'
-}, {
-    path: 'downloads',
-    component: DownloadsComponent,
     pathMatch: 'full'
 }];
 
