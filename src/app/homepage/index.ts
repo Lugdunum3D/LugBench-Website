@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 
-import { DownloadsComponent } from './downloads.component';
+import { HomepageComponent } from './homepage.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpModule,
-    RouterModule
   ],
   declarations: [
-    DownloadsComponent
+    HomepageComponent,
   ],
   exports: [
-    DownloadsComponent
+    HomepageComponent,
   ]
 })
-export class DownloadsModule { }
+export class HomepageModule { }
