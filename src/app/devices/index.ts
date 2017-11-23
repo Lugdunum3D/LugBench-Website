@@ -11,8 +11,10 @@ import { FormatsComponent } from './formats.component';
 import { MemoryComponent } from './memory.component';
 import { PropertiesComponent } from './properties.component';
 import { QueuesComponent } from './queues.component';
-import { ScoresComponent, RoundPipe } from './scores.component';
+import { ScoresComponent } from './scores.component';
 import { SwapchainComponent } from './swapchain.component';
+
+import { RoundPipe } from './round.pipe';
 
 @NgModule({
   imports: [

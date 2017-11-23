@@ -1,4 +1,4 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
@@ -30,12 +30,5 @@ export class ScoresComponent {
 
     getScores(id: number): Observable<Score[]> {
         return this.http.get(config.API_URL + '/scores?device=' + id).map(response => response.json().data);
-    }
-}
-
-@Pipe({name: 'round'})
-export class RoundPipe implements PipeTransform {
-    transform(value: number): number {
-        return Math.round(value);
     }
 }
