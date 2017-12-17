@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Device } from '../shared/models/device';
 
@@ -9,7 +10,7 @@ import { config } from '../config';
 
 @Component({
     selector: 'lugbench-device',
-    template: require('./device.component.html')
+    template: require('./device.component.html'),
 })
 export class DeviceComponent {
     public device: Device;
@@ -17,7 +18,7 @@ export class DeviceComponent {
     private memoryTab: String;
     private deviceId: String;
 
-    constructor(public http: Http, public router: Router, private activatedRoute: ActivatedRoute) {
+    constructor(public http: Http, public router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
         router.events.subscribe((val) => {
             this.tabIndex = this.activatedRoute.params['value'].tab;
             this.deviceId = this.activatedRoute.params['value'].id;
@@ -51,5 +52,9 @@ export class DeviceComponent {
             .subscribe(data => {
                 this.device = data[0];
             });
+    }
+
+    goBack(): void {
+        this.location.back();
     }
 }

@@ -1,6 +1,6 @@
 <div id="devices" class="container-custom-homepage noselect">
     <div class="row">
-        <div class="col l5">
+        <div class="col l5 s12">
             <div class="card card-filters">
                 <div class="card-content">
                     <div class="container">
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="col l7">
+        <div class="col l7 s12">
             <div class="row list-devices" *ngIf="this.devices && this.devices.length > 0">
                 <a class="col s12 clickable" *ngFor="let device of this.devices" [routerLink]="[device.device._id, 'performances']">
                     <div class="card hoverable fade-up" [id]="'device-' + device.device._id">
