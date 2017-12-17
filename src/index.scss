@@ -202,7 +202,7 @@ video#bgvid {
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background: url(app/devices/images/home.png) no-repeat;
+  // background: url(app/devices/images/home.png) no-repeat;
   background-size: cover;
   filter: blur(7px);
   -webkit-filter: blur(7px);
@@ -247,4 +247,23 @@ video#bgvid {
   animation-fill-mode: forwards;
   animation-duration: 700ms;
   animation-delay: 700ms;
+}
+
+.card-filters {
+  min-height: 200px;
+}
+
+
+@keyframes zoom-in-animation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.zoom-in img:hover {
+  animation-name: zoom-in-animation;
+  animation-fill-mode: forwards;
+  animation-duration: 500ms;
 }

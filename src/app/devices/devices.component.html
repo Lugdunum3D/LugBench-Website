@@ -1,26 +1,26 @@
 <div id="devices" class="container-custom-homepage noselect">
     <div class="row">
         <div class="col l5">
-            <div class="card">
+            <div class="card card-filters">
                 <div class="card-content">
                     <div class="container">
                         <form>
                             <h4>
-                              Filtrer
+                              Filter
                             </h4>
                             <div class="col s4 center-align">
-                                <a class="clickable">
-                                    <img class="circle circle-element framed" [src]="'./app/devices/images/Android_logo.png'">
+                                <a class="clickable zoom-in">
+                                    <img class="circle circle-element" [src]="'./app/devices/images/Android_logo.png'">
                                 </a>
                             </div>
                             <div class="col s4 center-align">
-                                <a class="clickable">
-                                    <img class="circle circle-element framed" [src]="'./app/devices/images/Linux_logo.png'">
+                                <a class="clickable zoom-in">
+                                    <img class="circle circle-element" [src]="'./app/devices/images/Linux_logo.png'">
                                 </a>
                             </div>
                             <div class="col s4 center-align">
-                                <a class="clickable">
-                                    <img class="circle circle-element framed" [src]="'./app/devices/images/Windows_logo.png'">
+                                <a class="clickable zoom-in">
+                                    <img class="circle circle-element" [src]="'./app/devices/images/Windows_logo.png'">
                                 </a>
                             </div>
                         </form>
@@ -31,7 +31,7 @@
         <div class="col l7">
             <div class="row list-devices" *ngIf="this.devices && this.devices.length > 0">
                 <a class="col s12 clickable" *ngFor="let device of this.devices" [routerLink]="[device.device._id, 'performances']">
-                    <div class="card hoverable" [id]="'device-' + device.device._id">
+                    <div class="card hoverable fade-up" [id]="'device-' + device.device._id">
                         <div class="card-content">
                             <div class="row no-margin-bottom">
                                 <div class="col s2">

@@ -19,7 +19,6 @@ export class HeaderComponent {
         if (el) {
             el.classList.add('on-closing');
             setTimeout(_ => {
-                console.log('test');
                 el.classList.remove('open');
                 el.classList.remove('on-closing');
                 el.classList.add('closed');
