@@ -13,6 +13,7 @@ import { HeaderComponent } from './header.component';
 import { TitleComponent } from './title.component';
 import { FooterComponent } from './footer.component';
 
+import { LoginModule } from './login';
 import { DevicesModule } from './devices';
 import { DownloadsModule } from './downloads';
 
@@ -21,6 +22,7 @@ import { DownloadsModule } from './downloads';
         MaterializeModule,
         BrowserModule,
         routing,
+        LoginModule,
         DevicesModule,
         DownloadsModule,
         RouterModule,
@@ -32,6 +34,8 @@ import { DownloadsModule } from './downloads';
         TitleComponent,
         FooterComponent,
     ],
-    bootstrap: [MainComponent]
+    bootstrap: [
+      MainComponent,
+    ],
 })
 export class AppModule { }

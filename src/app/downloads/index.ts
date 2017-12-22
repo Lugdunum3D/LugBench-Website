@@ -18,4 +18,4 @@ import { DownloadsComponent } from './downloads.component';
     DownloadsComponent
   ]
 })
-export class DownloadsModule { }
+export class DownloadsModule {}
