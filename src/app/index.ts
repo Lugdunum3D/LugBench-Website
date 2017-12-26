@@ -14,6 +14,7 @@ import { HeaderComponent } from './header.component';
 import { TitleComponent } from './title.component';
 import { FooterComponent } from './footer.component';
 
+import { LoginModule } from './login';
 import { DevicesModule } from './devices';
 import { HomepageModule } from './homepage';
 @NgModule({
@@ -21,6 +22,7 @@ import { HomepageModule } from './homepage';
         MaterializeModule,
         BrowserModule,
         routing,
+        LoginModule,
         DevicesModule,
         HomepageModule,
         Ng2SimplePageScrollModule.forRoot(),
@@ -32,6 +34,8 @@ import { HomepageModule } from './homepage';
         TitleComponent,
         FooterComponent,
     ],
-    bootstrap: [MainComponent]
+    bootstrap: [
+      MainComponent,
+    ],
 })
 export class AppModule { }

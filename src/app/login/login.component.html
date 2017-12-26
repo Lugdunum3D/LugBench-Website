@@ -1,0 +1,86 @@
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBdM2Mncvcnajt1XcVgL5enqQueZihEzZA",
+    authDomain: "lugbench-9301a.firebaseapp.com",
+    databaseURL: "https://lugbench-9301a.firebaseio.com",
+    projectId: "lugbench-9301a",
+    storageBucket: "lugbench-9301a.appspot.com",
+    messagingSenderId: "168266036565"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth__fr.js"></script>
+<link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
+<script>
+    // FirebaseUI config.
+    var uiConfig = {
+      signInSuccessUrl: '/devices',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      ],
+      tosUrl: '/devices'
+    };
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+</script>
+<script type="text/javascript">
+  initApp = function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        console.log('user signed in');
+        console.log('user', user);
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+        user.getIdToken().then(function(accessToken) {
+          document.getElementById('sign-in-status').textContent = 'Signed in';
+          document.getElementById('sign-in').textContent = 'Sign out';
+          document.getElementById('account-details').textContent = JSON.stringify({
+            displayName: displayName,
+            email: email,
+            emailVerified: emailVerified,
+            phoneNumber: phoneNumber,
+            photoURL: photoURL,
+            uid: uid,
+            accessToken: accessToken,
+            providerData: providerData
+          }, null, '  ');
+        });
+      } else {
+        console.log('user signed out');
+        window.location.assign('/login');
+      }
+    }, function(error) {
+      console.log(error);
+      window.location.assign('/login');
+    });
+  };
+
+  window.addEventListener('load', function() {
+    initApp()
+  });
+</script>
+<header>
+    <div class="fullpage valign-wrapper">
+        <div class="content-text center-align">
+            <img class="logo-header" src="https://raw.githubusercontent.com/Lugdunum3D/Visual-Identity/master/logo/dist/png/300dpi/lugbench-long-dark.png" alt="LugBench">
+            <h4 class="presentation-text">Se connecter</h4>
+            <div class="container">
+              <div id="firebaseui-auth-container"></div>
+            </div>
+        </div>
+    </div>
+</header>
