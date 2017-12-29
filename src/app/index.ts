@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { routing, RootComponent } from './routes.component';
 import { RouterModule } from '@angular/router';
@@ -14,17 +16,26 @@ import { HeaderComponent } from './header.component';
 import { TitleComponent } from './title.component';
 import { FooterComponent } from './footer.component';
 
-import { LoginModule } from './login';
+// import { LoginModule } from './login';
 import { DevicesModule } from './devices';
 import { HomepageModule } from './homepage';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from '../environments/production';
+
 @NgModule({
     imports: [
         MaterializeModule,
+        FormsModule,
+        HttpModule,
         BrowserModule,
         routing,
-        LoginModule,
         DevicesModule,
         HomepageModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
         Ng2SimplePageScrollModule.forRoot(),
     ],
     declarations: [
@@ -38,4 +49,4 @@ import { HomepageModule } from './homepage';
       MainComponent,
     ],
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,9 +4,15 @@
             <a data-activates="slide-out" class="button-collapse"><i class="material-icons menu">menu</i></a>
             <a class="brand-logo" href="/">LugBench</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li>
-                <a [routerLink]="['/login']" class="waves-effect waves-light btn">Se connecter</a>
-              </li>
+                <ul *ngIf="afAuth.authState | async; let user; else showLogin">
+                  <li>{{ user.displayName }}</li>
+                  <button class="btn btn-login" (click)="logout()">Déconnexion</button>
+                </ul>
+                <ng-template #showLogin>
+                  <li>
+                    <button class="btn btn-login" (click)="loginWithGoogle()">Connexion</button>
+                  </li>
+                </ng-template>
             </ul>
         </div>
     </nav>

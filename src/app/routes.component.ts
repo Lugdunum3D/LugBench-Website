@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
 import { DevicesComponent } from './devices/devices.component';
 import { DeviceComponent } from './devices/device.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -16,14 +15,10 @@ export const routes: Routes = [{
     path: '',
     redirectTo: 'homepage',
     pathMatch: 'full',
-},{
+}, {
     path: 'homepage',
     component: HomepageComponent,
     pathMatch: 'full',
-}, {
-    path: 'login',
-    component: LoginComponent,
-    pathMatch: 'full'
 }, {
     path: 'devices',
     component: DevicesComponent,
