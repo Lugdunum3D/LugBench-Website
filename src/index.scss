@@ -55,9 +55,18 @@ nav { background-color: #383838; }
     }
 }
 
+.btn-login,
+.btn-login:hover,
+.btn-login:active,
+.btn-login:focus {
+  margin: 0 10px;
+  background-color: $blue;
+}
+
 .btn-download,
 .btn-download:hover,
-.btn-download:active {
+.btn-download:active,
+.btn-download:focus {
   margin: 20px;
   background-color: $blue;
   transition: background-color 500ms ease-in-out;
